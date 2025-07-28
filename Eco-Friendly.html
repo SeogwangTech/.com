@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seogwang Tech</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    header {
+      background-color: #0a2855;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+    }
+
+   .logo-img {
+  height: 50px;
+  margin-right: 15px;
+  border-radius: 50%; /* 원형으로 만듦 */
+  object-fit: cover;  /* 비율 맞춰 자르기 */
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* 네비게이션 영역 */
+    nav {
+      background-color: #3668aa;
+      position: relative;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px 0;
+    }
+
+    .nav-container a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      padding: 8px;
+    }
+
+    /* 드롭다운 패널 */
+
+.dropdown {
+      display: flex;
+      justify-content: center;
+      background-color: white;
+      padding: 30px 0;
+    }
+
+    .dropdown-column {
+      display: flex;
+      flex-direction: column;
+      margin: 0 40px;
+      min-width: 140px;
+    }
+
+    .dropdown-column a {
+      text-decoration: none;
+      color: #222;
+      margin: 6px 0;
+      font-size: 14px;
+    }
+
+    .dropdown-column a:hover {
+      text-decoration: underline;
+    }
+    
+    .dropdown-panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 30px 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav:hover .dropdown-panel {
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-panel .dropdown-column {
+  display: flex;
+  flex-direction: column;
+  margin: 0 40px;
+  min-width: 140px;
+}
+
+.dropdown-panel .dropdown-column a {
+  text-decoration: none;
+  color: #222;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.dropdown-panel .dropdown-column a:hover {
+  text-decoration: underline;
+}
+
+    .dropdown-grid div a:hover {
+      color: #007acc;
+    }
+
+    .hero {
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .hero-section {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero-content button {
+  padding: 10px 20px;
+  background-color: #0074d9;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+    .cta-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #ffffff;
+      background-color: #333;
+    }
+    .language-dropdown {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.dropdown-btn {
+  background-color: #fff;
+  border: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 10px;
+}
+
+.dropdown-content button {
+  display: block;
+  background: none;
+  border: none;
+  font-weight: bold;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content"> 
+      <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/515272466_1397998971458140_2352081785412137135_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dSwYCfNpR1cQ7kNvwEcrW7z&_nc_oc=Adk6F8U5pQ7GhzuYwJPJi7WfpvILGGhAg0erDSgNwmCJiYmfIUyCYytQXY1EqlV3p1w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEDEN1M88SDeDh7hJVI0R0HABSZLYHhFm9V6oODBGlqhw&oe=68A66826" alt="세광테크 로고" class="logo-img">
+      <div class="logo-text">Seogwang Tech</div>
+  </header>
+  
+  <nav>
+    <div class="nav-container">
+      <a href="index.html">About Us</a>
+      <a href="제품소개.html">Product Introduction</a>
+      <a href="">Sustainable Management</a>
+      <a href="고객센터.html">customer service center</a>
+    </div>
+
+   <div class="dropdown-panel">
+  <div class="dropdown-column">
+    <strong>About Us</strong>
+    <a href="ceo.html">Chairman's Greetings</a>
+    <a href="경영.html">Management</a>
+    <a href="사업.html">Business Areas</a>
+  </div>
+  <div class="dropdown-column">
+    <strong>Product Introduction</strong>
+    <a href="카탈로그.html">catalog</a>
+    <a href="Fabric 공정도.html">Process diagram by fiber</a>
+    <a href="제품목록.html">Product List</a>
+  </div>
+  <div class="dropdown-column">
+    <strong>Sustainable Management</strong>
+    <a href="지속가능경영 체계.html">Sustainable Management System</a>
+    <a href="Eco-Friendly.html">Eco-friendly</a>
+    <a href="Shared Value.html">Shared Values</a>
+    <a href="Global Integrity.html">Global Integrity</a>
+  </div>
+  <div class="dropdown-column">
+    <strong>customer service center</strong>
+    <a href="고객상담.html">customer Service</a>
+    <a href="제품공급문의.html">Product supply inquiry</a>
+  </div>
+</div>
+</nav>
+
+<div class="hero-section">
+  <h2>Seogwang Tech Company Limited</h2>
+</div>
+
+<style>
+.hero-section {
+  width: 100%;
+  padding: 40px;
+  display: flex;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  align-items: center;
+  background-color: #f5f5f5;
+}
+.hero-section h2 {
+  position: relative;
+  top: 150px;                /* 글씨를 아래로 이동 */
+  color: #ffffff;           /* 흰색 글씨 */
+  font-size: 42px;          /* 글자 크기 키우기 */
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+</style>
+
+<section class="eco-management-section">
+  <h2>🌍 Eco-friendly management</h2>
+  <p>
+    We consider the environment as one of our top priorities
+  </p>
+
+  <h3>♻ Key Practices</h3>
+  <ul>
+    <li>Expanding eco-friendly raw materials and non-toxic chemical products</li>
+    <li>Introducing carbon emission reduction technologies and saving energy</li>
+    <li>Hazardous Chemical Safety Management and Development of Alternative Materials</li>
+    <li>Operation of reusable packaging and recycling systems</li>
+    <li>Efforts to achieve eco-friendly certification and global standards compliance</li>
+  </ul>
+
+  <div class="eco-promise-box">
+    <h4>🌱 Our pledge</h4>
+    <ul>
+      <li>Protecting the environment through sustainable product design</li>
+      <li>Strict compliance with environmental standards in all production processes</li>
+      <li>Join us in creating a clean planet for future generations</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+    .eco-promise-box {
+  background-color: #d2ecd2;
+  padding: 20px 30px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+</style>
+
+<style>
+    .thumbnail-container {
+      display: flex;
+      gap: 20px;
+      margin: 20px;
+    }
+    .thumbnail {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1001;
+  padding: 10px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+}
+
+.arrow.left { left: 30px; }
+.arrow.right { right: 30px; }
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  background: rgba(0,0,0,0.3);
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+  </style>
+</head>
+<body>
+
+<h2>picture</h2>
+<div class="thumbnail-container">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/520193579_755075907110945_7123353988614948261_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=d1nsnB4r7vEQ7kNvwG5tSrP&_nc_oc=AdmXQIzp_rF9f053ro2jL1FLMmBNz12vZbYiRS9fO5rUnD2mWTONOFrTwVM3oVS0m6M&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wEZYwrQz1dQnwx2Qy5v_Ht1qCss-yzbdpKYJ-VLFgA6vA&oe=68A839FA" class="thumbnail" onclick="openModal(0)">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/521498034_1130328798907943_9069002703257806702_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=U87O4DCucCcQ7kNvwGLJHm8&_nc_oc=AdlxLfsUxmuCvk1q_H7FbO9Kn2l_1YSO4g03CI4hqcfoWpxLEcUyV5gVpfAmu02Q-fE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFV8uOhL-eKdB1rGKXpL0rAxk6aQo1QvzSPLsJ4ySEg3A&oe=68A85003" class="thumbnail" onclick="openModal(1)">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/522741285_734137275894674_5069962331356470098_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=3_ITXaUjq-wQ7kNvwHEP2W8&_nc_oc=AdmWG4xrs8lvpLlmPWnSlT1L8pNPXivxUPXFjxWLsMF15xhyLrKBObdPFzCcmFP1w0A&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wE0PvIwupJ6ProUHdlEFjBi-3ND6Jb0DFLGEctWGyrLYA&oe=68A855E0" class="thumbnail" onclick="openModal(2)">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/519676428_1836528563940765_8058898873841486152_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_ohc=d4sbr0EWZ64Q7kNvwEBItKb&_nc_oc=Adk18yzAAHnwm8aD1G6rKxUTSV0iPw9hc_DxjlQdnNI8zsKq6OzivSV-VSABs4xDIlE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFupy6uFO1dkxfP3_uh9PmJEv50c0R2x9UBAOTNbAwzbw&oe=68A867AB" class="thumbnail" onclick="openModal(3)">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/521286891_23972975352358544_7949571081586645882_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=ag1vtopRq9oQ7kNvwH07_67&_nc_oc=AdmRuVL-UlBAycw_AYKzgjh-Xxeb2Hr9jhvwrarfo5l0JJF8g4G6kKq3gT3IkHjFbQ0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wEip-6ig7wGzoAWTM1aPr1vclZDiAalWYhs3j1mXI1lVg&oe=68AD2FE0" class="thumbnail" onclick="openModal(4)">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/520200394_1130776672272778_5289192762304241945_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=H3uYkWqvIyoQ7kNvwGEUo5Y&_nc_oc=AdljhaOkGBQD4f1dIG4slYwW98Vs4K4Y7UOjyIjImhfQOJq6-2Nrdxw8DGkUw8K9R3g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFKjr7JV_xQKjrqjLIwbFiPM0tTcaJpx-p5ynJFRN4aGg&oe=68AD3677" class="thumbnail" onclick="openModal(5)">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/519725780_1235572811193353_6356580083901605239_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_ohc=E19Vq7OEZE8Q7kNvwFMlMBf&_nc_oc=AdlLUwCqHsjj3CGI5dV52qkPe_BOJ0uxKz7dJE23V0r7ckE0eooYeLE3YM_awbe2EmE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFPONzxevlzy-s_I0CHzpoV2UOuuFQ44e5na2ii9V3s7Q&oe=68AD2CB9" class="thumbnail" onclick="openModal(6)">
+</div>
+
+<!-- 최종 modal 구조 예시 -->
+<div class="modal" id="modal">
+  <span class="arrow left" onclick="prevImage()">&#10094;</span>
+  <img id="modal-img">
+  <span class="arrow right" onclick="nextImage()">&#10095;</span>
+  <span class="close-btn" onclick="closeModal()">X</span>
+</div>
+
+<script>
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+
+  const imageSources = [
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/520193579_755075907110945_7123353988614948261_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=d1nsnB4r7vEQ7kNvwG5tSrP&_nc_oc=AdmXQIzp_rF9f053ro2jL1FLMmBNz12vZbYiRS9fO5rUnD2mWTONOFrTwVM3oVS0m6M&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wEZYwrQz1dQnwx2Qy5v_Ht1qCss-yzbdpKYJ-VLFgA6vA&oe=68A839FA",
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/521498034_1130328798907943_9069002703257806702_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=U87O4DCucCcQ7kNvwGLJHm8&_nc_oc=AdlxLfsUxmuCvk1q_H7FbO9Kn2l_1YSO4g03CI4hqcfoWpxLEcUyV5gVpfAmu02Q-fE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFV8uOhL-eKdB1rGKXpL0rAxk6aQo1QvzSPLsJ4ySEg3A&oe=68A85003",
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/522741285_734137275894674_5069962331356470098_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=3_ITXaUjq-wQ7kNvwHEP2W8&_nc_oc=AdmWG4xrs8lvpLlmPWnSlT1L8pNPXivxUPXFjxWLsMF15xhyLrKBObdPFzCcmFP1w0A&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wE0PvIwupJ6ProUHdlEFjBi-3ND6Jb0DFLGEctWGyrLYA&oe=68A855E0",
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/519676428_1836528563940765_8058898873841486152_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_ohc=d4sbr0EWZ64Q7kNvwEBItKb&_nc_oc=Adk18yzAAHnwm8aD1G6rKxUTSV0iPw9hc_DxjlQdnNI8zsKq6OzivSV-VSABs4xDIlE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFupy6uFO1dkxfP3_uh9PmJEv50c0R2x9UBAOTNbAwzbw&oe=68A867AB",
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/521286891_23972975352358544_7949571081586645882_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=ag1vtopRq9oQ7kNvwH07_67&_nc_oc=AdmRuVL-UlBAycw_AYKzgjh-Xxeb2Hr9jhvwrarfo5l0JJF8g4G6kKq3gT3IkHjFbQ0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wEip-6ig7wGzoAWTM1aPr1vclZDiAalWYhs3j1mXI1lVg&oe=68AD2FE0",
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/520200394_1130776672272778_5289192762304241945_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=H3uYkWqvIyoQ7kNvwGEUo5Y&_nc_oc=AdljhaOkGBQD4f1dIG4slYwW98Vs4K4Y7UOjyIjImhfQOJq6-2Nrdxw8DGkUw8K9R3g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFKjr7JV_xQKjrqjLIwbFiPM0tTcaJpx-p5ynJFRN4aGg&oe=68AD3677",
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/519725780_1235572811193353_6356580083901605239_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_ohc=E19Vq7OEZE8Q7kNvwFMlMBf&_nc_oc=AdlLUwCqHsjj3CGI5dV52qkPe_BOJ0uxKz7dJE23V0r7ckE0eooYeLE3YM_awbe2EmE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFPONzxevlzy-s_I0CHzpoV2UOuuFQ44e5na2ii9V3s7Q&oe=68AD2CB9"
+  ];
+
+  let currentIndex = 0;
+
+  function openModal(index) {
+    currentIndex = index;
+    showImage();
+    modal.style.display = "flex";
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  function showImage() {
+    modalImg.src = imageSources[currentIndex];
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
+    showImage();
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % imageSources.length;
+    showImage();
+  }
+</script>
+
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>SEOGWANG TECH</p>
+    <p>Headquarters, Factory: 529 Daegodbuk-ro, Daegod-myeon, Gimpo-si, Gyeonggi-do (1,2 buildings)</p>
+    <p>TEL 031.983.4778 FAX 031.983.4779</p>
+  </section>
+
+  <footer>
+    <div class="header-content"> 
+      <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/515272466_1397998971458140_2352081785412137135_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dSwYCfNpR1cQ7kNvwEcrW7z&_nc_oc=Adk6F8U5pQ7GhzuYwJPJi7WfpvILGGhAg0erDSgNwmCJiYmfIUyCYytQXY1EqlV3p1w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEDEN1M88SDeDh7hJVI0R0HABSZLYHhFm9V6oODBGlqhw&oe=68A66826" alt="세광테크 로고" class="logo-img">
+      <div class="logo-text">Seogwang Tech</div>
+    © seogwang tech company Limited
+  </footer>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .hero {
+      background-image: url('https://scontent-icn2-1.cdninstagram.com/v/t1.15752-9/522298888_761460053232865_8115702079711008189_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dFOXorLMjOkQ7kNvwFMe8Ts&_nc_oc=Adnl-LQWsaZi5hKEgN22FlhLS2HHcW9_nRwiwDuQv0YvrIXbnu3f3lcMpTcwjqtRigg&_nc_zt=23&_nc_ht=scontent-icn2-1.cdninstagram.com&oh=03_Q7cD2wGkKXF-eFXwBHA9zMD-5zP60EKILoSZ9wOVNDa7PWwdNA&oe=68AD2302');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      image-rendering: auto; /* 화질 향상용 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 40px 60px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .overlay h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .overlay p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .overlay button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .overlay button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+  <script>
+  const heroSection = document.querySelector('.hero-section');
+
+  const images = [
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/522298888_761460053232865_8115702079711008189_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dFOXorLMjOkQ7kNvwFMe8Ts&_nc_oc=Adnl-LQWsaZi5hKEgN22FlhLS2HHcW9_nRwiwDuQv0YvrIXbnu3f3lcMpTcwjqtRigg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFYei3fetEQ-Fu374kYZM7-9KOdh-VVx0Gb-ZAqWkzyCQ&oe=68AD5B42", // 첫 번째 이미지 경로 (예: "images/factory1.jpg")
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/522306285_4209073365989821_4150928157845549537_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_ohc=57kPdVuT7MIQ7kNvwHIw0l5&_nc_oc=AdkT6gfbVQx-tiBYnrFZHUhWMLqnGZKkPO4YSAN5JFJkkoR6JwQRfV2dVy815erU0jU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wEwJknmf34Ul1EVvmUqehOmhUlWx6XFJ8d1Hdm8o2D0bA&oe=68AD5AB8", // 두 번째 이미지 경로
+  ];
+
+  let index = 0;
+
+  function changeBackground() {
+    heroSection.style.backgroundImage = `url(${images[index]})`;
+    index = (index + 1) % images.length;
+  }
+
+  changeBackground(); // 초기 이미지 설정
+  setInterval(changeBackground, 4000); // 4초마다 변경
+</script>
+
+
+</body>
+</html>

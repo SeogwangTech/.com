@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seogwang Tech</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    header {
+      background-color: #0a2855;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+    }
+
+   .logo-img {
+  height: 50px;
+  margin-right: 15px;
+  border-radius: 50%; /* 원형으로 만듦 */
+  object-fit: cover;  /* 비율 맞춰 자르기 */
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* 네비게이션 영역 */
+    nav {
+      background-color: #3668aa;
+      position: relative;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px 0;
+    }
+
+    .nav-container a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      padding: 8px;
+    }
+
+    /* 드롭다운 패널 */
+
+.dropdown {
+      display: flex;
+      justify-content: center;
+      background-color: white;
+      padding: 30px 0;
+    }
+
+    .dropdown-column {
+      display: flex;
+      flex-direction: column;
+      margin: 0 40px;
+      min-width: 140px;
+    }
+
+    .dropdown-column a {
+      text-decoration: none;
+      color: #222;
+      margin: 6px 0;
+      font-size: 14px;
+    }
+
+    .dropdown-column a:hover {
+      text-decoration: underline;
+    }
+    
+    .dropdown-panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 30px 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav:hover .dropdown-panel {
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-panel .dropdown-column {
+  display: flex;
+  flex-direction: column;
+  margin: 0 40px;
+  min-width: 140px;
+}
+
+.dropdown-panel .dropdown-column a {
+  text-decoration: none;
+  color: #222;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.dropdown-panel .dropdown-column a:hover {
+  text-decoration: underline;
+}
+
+    .dropdown-grid div a:hover {
+      color: #007acc;
+    }
+
+    .hero {
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .hero-section {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero-content button {
+  padding: 10px 20px;
+  background-color: #0074d9;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+    .cta-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #ffffff;
+      background-color: #333;
+    }
+    .language-dropdown {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.dropdown-btn {
+  background-color: #fff;
+  border: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 10px;
+}
+
+.dropdown-content button {
+  display: block;
+  background: none;
+  border: none;
+  font-weight: bold;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content"> 
+      <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/515272466_1397998971458140_2352081785412137135_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dSwYCfNpR1cQ7kNvwEcrW7z&_nc_oc=Adk6F8U5pQ7GhzuYwJPJi7WfpvILGGhAg0erDSgNwmCJiYmfIUyCYytQXY1EqlV3p1w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEDEN1M88SDeDh7hJVI0R0HABSZLYHhFm9V6oODBGlqhw&oe=68A66826" alt="세광테크 로고" class="logo-img">
+      <div class="logo-text">Seogwang Tech</div>
+  </header>
+  
+  <nav>
+    <div class="nav-container">
+      <a href="index.html">About Us</a>
+      <a href="제품소개.html">Product Introduction</a>
+      <a href="">Sustainable Management</a>
+      <a href="고객센터.html">customer service center</a>
+    </div>
+
+   <div class="dropdown-panel">
+  <div class="dropdown-column">
+    <strong>About Us</strong>
+    <a href="ceo.html">Chairman's Greetings</a>
+    <a href="경영.html">Management</a>
+    <a href="사업.html">Business Areas</a>
+  </div>
+  <div class="dropdown-column">
+    <strong>Product Introduction</strong>
+    <a href="카탈로그.html">catalog</a>
+    <a href="Fabric 공정도.html">Process diagram by fiber</a>
+    <a href="제품목록.html">Product List</a>
+  </div>
+  <div class="dropdown-column">
+    <strong>Sustainable Management</strong>
+    <a href="지속가능경영 체계.html">Sustainable Management System</a>
+    <a href="Eco-Friendly.html">Eco-friendly</a>
+    <a href="Shared Value.html">Shared Values</a>
+    <a href="Global Integrity.html">Global Integrity</a>
+  </div>
+  <div class="dropdown-column">
+    <strong>customer service center</strong>
+    <a href="고객상담.html">customer Service</a>
+    <a href="제품공급문의.html">Product supply inquiry</a>
+  </div>
+</div>
+</nav>
+
+<div class="hero-section">
+  <h2>Seogwang Tech Company Limited</h2>
+</div>
+
+<style>
+.hero-section {
+  width: 100%;
+  padding: 40px;
+  display: flex;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  align-items: center;
+  background-color: #f5f5f5;
+}
+.hero-section h2 {
+  position: relative;
+  top: 150px;                /* 글씨를 아래로 이동 */
+  color: #ffffff;           /* 흰색 글씨 */
+  font-size: 42px;          /* 글자 크기 키우기 */
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+</style>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>SEOGWANG TECH</p>
+    <p>Headquarters, Factory: 529 Daegodbuk-ro, Daegod-myeon, Gimpo-si, Gyeonggi-do (1,2 buildings)</p>
+    <p>TEL 031.983.4778 FAX 031.983.4779</p>
+  </section>
+
+  <footer>
+    <div class="header-content"> 
+      <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/515272466_1397998971458140_2352081785412137135_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dSwYCfNpR1cQ7kNvwEcrW7z&_nc_oc=Adk6F8U5pQ7GhzuYwJPJi7WfpvILGGhAg0erDSgNwmCJiYmfIUyCYytQXY1EqlV3p1w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEDEN1M88SDeDh7hJVI0R0HABSZLYHhFm9V6oODBGlqhw&oe=68A66826" alt="세광테크 로고" class="logo-img">
+      <div class="logo-text">Seogwang Tech</div>
+    © seogwang tech company Limited
+  </footer>
+
+<style>
+    .hero {
+      background-image: url('https://scontent-icn2-1.cdninstagram.com/v/t1.15752-9/522298888_761460053232865_8115702079711008189_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dFOXorLMjOkQ7kNvwFMe8Ts&_nc_oc=Adnl-LQWsaZi5hKEgN22FlhLS2HHcW9_nRwiwDuQv0YvrIXbnu3f3lcMpTcwjqtRigg&_nc_zt=23&_nc_ht=scontent-icn2-1.cdninstagram.com&oh=03_Q7cD2wGkKXF-eFXwBHA9zMD-5zP60EKILoSZ9wOVNDa7PWwdNA&oe=68AD2302');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      image-rendering: auto; /* 화질 향상용 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 40px 60px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .overlay h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .overlay p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .overlay button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .overlay button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+  <script>
+  const heroSection = document.querySelector('.hero-section');
+
+  const images = [
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/522298888_761460053232865_8115702079711008189_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dFOXorLMjOkQ7kNvwFMe8Ts&_nc_oc=Adnl-LQWsaZi5hKEgN22FlhLS2HHcW9_nRwiwDuQv0YvrIXbnu3f3lcMpTcwjqtRigg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFYei3fetEQ-Fu374kYZM7-9KOdh-VVx0Gb-ZAqWkzyCQ&oe=68AD5B42", // 첫 번째 이미지 경로 (예: "images/factory1.jpg")
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/522306285_4209073365989821_4150928157845549537_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_ohc=57kPdVuT7MIQ7kNvwHIw0l5&_nc_oc=AdkT6gfbVQx-tiBYnrFZHUhWMLqnGZKkPO4YSAN5JFJkkoR6JwQRfV2dVy815erU0jU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wEwJknmf34Ul1EVvmUqehOmhUlWx6XFJ8d1Hdm8o2D0bA&oe=68AD5AB8", // 두 번째 이미지 경로
+  ];
+
+  let index = 0;
+
+  function changeBackground() {
+    heroSection.style.backgroundImage = `url(${images[index]})`;
+    index = (index + 1) % images.length;
+  }
+
+  changeBackground(); // 초기 이미지 설정
+  setInterval(changeBackground, 4000); // 4초마다 변경
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seogwang Tech</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    header {
+      background-color: #0a2855;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+    }
+
+   .logo-img {
+  height: 50px;
+  margin-right: 15px;
+  border-radius: 50%; /* 원형으로 만듦 */
+  object-fit: cover;  /* 비율 맞춰 자르기 */
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* 네비게이션 영역 */
+    nav {
+      background-color: #3668aa;
+      position: relative;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px 0;
+    }
+
+    .nav-container a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      padding: 8px;
+    }
+
+    /* 드롭다운 패널 */
+
+.dropdown {
+      display: flex;
+      justify-content: center;
+      background-color: white;
+      padding: 30px 0;
+    }
+
+    .dropdown-column {
+      display: flex;
+      flex-direction: column;
+      margin: 0 40px;
+      min-width: 140px;
+    }
+
+    .dropdown-column a {
+      text-decoration: none;
+      color: #222;
+      margin: 6px 0;
+      font-size: 14px;
+    }
+
+    .dropdown-column a:hover {
+      text-decoration: underline;
+    }
+    
+    .dropdown-panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 30px 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav:hover .dropdown-panel {
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-panel .dropdown-column {
+  display: flex;
+  flex-direction: column;
+  margin: 0 40px;
+  min-width: 140px;
+}
+
+.dropdown-panel .dropdown-column a {
+  text-decoration: none;
+  color: #222;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.dropdown-panel .dropdown-column a:hover {
+  text-decoration: underline;
+}
+
+    .dropdown-grid div a:hover {
+      color: #007acc;
+    }
+
+    .hero {
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .hero-section {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero-content button {
+  padding: 10px 20px;
+  background-color: #0074d9;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+    .cta-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #ffffff;
+      background-color: #333;
+    }
+    .language-dropdown {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.dropdown-btn {
+  background-color: #fff;
+  border: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 10px;
+}
+
+.dropdown-content button {
+  display: block;
+  background: none;
+  border: none;
+  font-weight: bold;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content"> 
+      <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/515272466_1397998971458140_2352081785412137135_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dSwYCfNpR1cQ7kNvwEcrW7z&_nc_oc=Adk6F8U5pQ7GhzuYwJPJi7WfpvILGGhAg0erDSgNwmCJiYmfIUyCYytQXY1EqlV3p1w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEDEN1M88SDeDh7hJVI0R0HABSZLYHhFm9V6oODBGlqhw&oe=68A66826" alt="세광테크 로고" class="logo-img">
+      <div class="logo-text">Seogwang Tech</div>
+  </header>
+  
+  <nav>
+    <div class="nav-container">
+      <a href="index.html">About Us</a>
+      <a href="제품소개.html">Product Introduction</a>
+      <a href="">Sustainable Management</a>
+      <a href="고객센터.html">customer service center</a>
+    </div>
+
+   <div class="dropdown-panel">
+  <div class="dropdown-column">
+    <strong>About Us</strong>
+    <a href="ceo.html">Chairman's Greetings</a>
+    <a href="경영.html">Management</a>
+    <a href="사업.html">Business Areas</a>
+  </div>
+  <div class="dropdown-column">
+    <strong>Product Introduction</strong>
+    <a href="카탈로그.html">catalog</a>
+    <a href="Fabric 공정도.html">Process diagram by fiber</a>
+    <a href="제품목록.html">Product List</a>
+  </div>
+  <div class="dropdown-column">
+    <strong>Sustainable Management</strong>
+    <a href="지속가능경영 체계.html">Sustainable Management System</a>
+    <a href="Eco-Friendly.html">Eco-friendly</a>
+    <a href="Shared Value.html">Shared Values</a>
+    <a href="Global Integrity.html">Global Integrity</a>
+  </div>
+  <div class="dropdown-column">
+    <strong>customer service center</strong>
+    <a href="고객상담.html">customer Service</a>
+    <a href="제품공급문의.html">Product supply inquiry</a>
+  </div>
+</div>
+</nav>
+
+<div class="hero-section">
+  <h2>Seogwang Tech Company Limited</h2>
+</div>
+
+<style>
+.hero-section {
+  width: 100%;
+  padding: 40px;
+  display: flex;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  align-items: center;
+  background-color: #f5f5f5;
+}
+.hero-section h2 {
+  position: relative;
+  top: 150px;                /* 글씨를 아래로 이동 */
+  color: #ffffff;           /* 흰색 글씨 */
+  font-size: 42px;          /* 글자 크기 키우기 */
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+</style>
+
+<style>
+.big-title {
+  font-size: 48px;
+}
+
+</style>
+
+<h2 class="big-title">Product List</h2>
+
+<h2>1. Desizing Agent</h2>
+<table border="1">
+  <tr>
+    <th>product</th>
+    <th>use</th>
+    <th>Main composition</th>
+    <th>appearance</th>
+    <th>Ionic</th>
+    <th>amount used</th>
+    <th>characteristic</th>
+  </tr>
+  <tr>
+    <td>Splitter<br>
+Seg 705</td>
+    <td>Oxidizing<br>
+agent</td>
+    <td>Special<br>
+Peroxide</td>
+    <td>white<br>
+powder</td>
+    <td>Bionic</td>
+    <td>0.5~1.5%<br>
+(based on fabric weight)</td>
+    <td>Excellent penetration bonding and decomposition ability for natural and synthetic fillers.<br> 
+    Fast decomposition of the sizing residue prevents re-attachment.</td>
+  </tr>
+  <tr>
+    <td>Splitter AC</td>
+    <td>Acrylic<br>
+          type<br>
+        sizing agent</td>
+    <td>Special<br>
+      Peroxide</td>
+    <td>white<br>
+        powder</td>
+    <td>Bionic</td>
+    <td>1~5 g/ℓ</td>
+    <td>The most suitable sizing agent for acrylic resins.<BR>
+        Sizing, refining, and bleaching can be done in one bath.<BR>
+        Excellent effect in soaping process.</td>
+  </tr>
+  <tr>
+    <td>Splitter 700</td>
+    <td>High temperature<BR>
+        enzyme desizing agent</td>
+    <td>α-amylase</td>
+    <td>Brown liquid</td>
+    <td></td>
+    <td>0.5~1.0 g/ℓ</td>
+    <td>Biodegrading natural starch, starch derivatives or compounds thereof used in the slurry,<BR>
+        making them easily soluble in water, and<BR>
+        removing the slurry without damage.</td>
+  </tr>
+  <tr>
+    <td>Divider Seg TM</td>
+    <td>Enzyme desizing agent<BR>
+        for medium temperature</td>
+    <td>α-amylase</td>
+    <td>Brown liquid</td>
+    <td></td>
+    <td>0.5~1.0 g/ℓ</td>
+    <td>Selective and efficient removal without fiber damage even at medium temperatures.</td>
+  </tr>
+</table>
+
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2. Penetrating/Scouring Agent</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">SegScore </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       Seg D-70 </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       Seg SH-70</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Wetting penetrant </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       concentrate</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">polyethylene </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       derivatives</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+      transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic / </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~5 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">A low-foaming, alkaline </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       penetrating agent with excellent penetration and diffusion properties. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+      Excellent emulsifying and dispersing ability.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">SegScore </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       Seg AP-25</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Eco-friendly </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       refining agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Polyoxy- </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+      ethylene alkyl- </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       ester</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Colorless </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        viscous liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic / </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~4 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       A refining penetrant for natural and synthetic fibers </font><font dir="auto" style="vertical-align: inherit;">for penetration, cleaning and solubilization . </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Used in pretreatment, bleaching, dyeing, etc.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segwet PN</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Low-foam </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+      penetration refining agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special ionic </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       anionic activator </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       compounds</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+      transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic / </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       weakly anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0.3~3 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       Wetting detergent </font><font dir="auto" style="vertical-align: inherit;">with low foaming properties, stability in alkaline environments, and excellent penetrability . </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+      Pretreatment agent with excellent ability to prevent re-attachment of impurities </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       .</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">SegScore NA</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       Alkali </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       penetrant for </font><font dir="auto" style="vertical-align: inherit;">slicing</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Alkyl </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       ester salt</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~3 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Alkali-resistant penetrant for mercerizing of gray-free fabrics and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       continuous weight-loss processing of polyester fabrics , </font><font dir="auto" style="vertical-align: inherit;">
+       long-term stability in alkaline solutions
+     </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        below 34Be</font></font><br><font dir="auto" style="vertical-align: inherit;"></font></td>
+  </tr>
+</tbody></table>
+
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3. Degreasing and de-oiling agent</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Seg Oil </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+      Seg ACT-30</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Degreasing agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Polyoxy- </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+      ethylene </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       alkyl ether</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Nonionic / </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~2 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Degreasing and de-oiling agent for pretreatment of synthetic fibers, spandex, etc. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent anti-re-adhesion ability. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent wetting power.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Seg Oil 50</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Degreasing agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Polyhydric alcohol </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       fatty acid system</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Colorless viscous </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Nonionic / </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~5 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        It has strong degreasing power and excellent </font><font dir="auto" style="vertical-align: inherit;">emulsifying and dispersing properties, so it can be used in refining processes. </font><font dir="auto" style="vertical-align: inherit;">
+        It completely removes oil spots </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        that occur during weaving and twisting of various fibers .</font></font><br><font dir="auto" style="vertical-align: inherit;"></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Seg Oil 30</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Degreasing agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Polyhydric alcohol </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        fatty acid system</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Colorless </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       viscous liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Nonionic / Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~7 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Powerful degreasing power to remove </font><font dir="auto" style="vertical-align: inherit;">grease contaminated with synthetic and natural fibers . </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Good at preventing re-adhesion during scouring.</font></font></td>
+    </tr>
+</tbody></table>
+
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">4. Stabilizing/Neutralizing Agent</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segon NS</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Non-silicic acid </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        hydrogen peroxide </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        stabilizer</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Polyhydric alcohol </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        lactate ester</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~9 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">By controlling the decomposition of hydrogen peroxide </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        , whiteness of the dyed product is guaranteed. By not including silicic acid, </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        removal of various impurities and scabs of the dyed product is maximized. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent blocking power against heavy metals, especially iron.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Seg DN S</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Silicic acid system</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Silicate</font></font></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">By controlling the decomposition of hydrogen peroxide </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        , whiteness of the dyed product is guaranteed. By not including silicic acid, </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        removal of various impurities and scabs of the dyed product is maximized. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent blocking power against heavy metals, especially iron.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segon HP</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Residual fruit </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        neutralizer</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special Weapon Salt</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~7 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">After hydrogen peroxide bleaching of cotton, the rinsing </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        process can be omitted and a single neutralization is sufficient.</font></font></td>
+  </tr>
+  </tbody></table>
+  
+ <h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">5. Sequestering Agent</font></font></h2>
+  <table border="1">
+    <tbody><tr>
+      <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+      <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+      <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+      <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+      <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+      <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+      <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+    </tr>
+    <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segcalon DK</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anti-reattachment </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        metal ion </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        sequestrant</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">sodium </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        acrylic lake</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~5 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">It has a blocking effect on metal ions and </font><font dir="auto" style="vertical-align: inherit;">
+        prevents re-attachment </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        of impurities through excellent dispersion effect . Alkali resistance</font></font><br><font dir="auto" style="vertical-align: inherit;"></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segcalon K-3000</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Metal ion </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        sequestration purifier</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        polymer </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        blends</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">white powder</font></font></td>
+    <td></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~3 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Enhances refining and bleaching effects by blocking metal ions </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        . Promotes dye penetration and adsorption. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Prevents discoloration and color yield reduction.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segtalon SQ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anti-reattachment </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        metal ion </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        sequestrant</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        polymerization </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        mixture</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~4 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Excellent metal ion sequestration and chelating </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        effect of heavy metals. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent chelating effect at pH 4~10.5.</font></font></td>
+  </tr></tbody></table>
+
+   <h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">6. Dyeing Auxiliary</font></font></h2>
+  <table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segdamche </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        MN</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Carrier for </font><font dir="auto" style="vertical-align: inherit;">polyester </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        dyeing</font></font><br><font dir="auto" style="vertical-align: inherit;"></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Metal naphthalene </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        and special </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        anionic compounds</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Brown </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">5~15% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+       (based on fabric weight)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">High dyeing concentration is achieved, and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        the effect is excellent in case of deep coloring. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        There is no tapping phenomenon, and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        it is excellent in preventing stains, etc.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segdamche </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        MCK</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Carrier for </font><font dir="auto" style="vertical-align: inherit;">polyester </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        dyeing</font></font><br><font dir="auto" style="vertical-align: inherit;"></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Methyl naphthalene </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        and special </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        anionic compounds</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellow </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">5~15% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        (based on fabric weight)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Extremely high dyeing concentrations are achieved </font><font dir="auto" style="vertical-align: inherit;">by excellent carrier effects , and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        the effect is particularly noticeable in the case of deep coloring.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segment carrier </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        TCB</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">White dragon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        carrier</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Fluorobenz- </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Ene and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Special Compounds</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellow </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic / </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~5 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Application to single-bath fluorescent bleaching </font><font dir="auto" style="vertical-align: inherit;">of polyester products using sodium chlorite . </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent emulsion stability.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segdamche </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        T-60</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">White dragon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        carrier</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Fluorobenz- </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Ene </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Special Compound</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~4 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">It has excellent emulsion stability and </font><font dir="auto" style="vertical-align: inherit;">
+        does not </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        affect the light, washing, and friction fastness of fluorescent dyes.</font></font><br><font dir="auto" style="vertical-align: inherit;"></font></td>
+  </tr>
+</tbody></table>
+
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">7. Crease Proof Agent</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segcaeaes Q2</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Heavy duty flexible </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+            and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        anti-static agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special anionic </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        ester</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">milky white liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~3% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        (based on fabric weight)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Excellent effect in preventing fold marks and rope marks that occur during the dyeing process </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        . No side effects on dyeing and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        improves dyeing stability.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsoft Seth</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Softener in the bath</font></font></td>
+    <td></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Light yellow liquid</font></font></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+</tr></tbody></table>
+
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">8. Dispersing/Levelling/Retarding Agent</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segdisper </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                Seg D-500</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        carrier dispersion </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        leveling agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Diphenol </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        derivatives and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        special emulsions</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">light yellow liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Bionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0.5~1 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">When dyeing polyester fibers at high temperature and high pressure </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        , strong penetration and leveling power </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        are achieved. Excellent dye solubility and dispersibility </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        prevents tangle formation .</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segdisper </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+            PDR C/C</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">High concentration </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        pet </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        dispersant</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Aromatic interfacial </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        sulfurizing agents and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        fatty acid esters</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">light yellow liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        weakly anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0.5~2 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent build-up for </font><font dir="auto" style="vertical-align: inherit;">blended fabrics and woven fabrics of cotton and synthetic fibers (pet), so dyeing is possible. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        After pretreatment, residues are removed, so </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        there are almost no dyeing accidents, and the color of the dyed material is vivid.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segdisper </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+              D-50</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">High temperature, high pressure </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        dispersion leveling agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Alcohol-based </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        nonionic and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        anionic compounds</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">light yellow liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        weakly anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~4 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">There is no error due to air bubbles when using a quick dyer . </font><font dir="auto" style="vertical-align: inherit;">
+        There is no tering phenomenon due </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        to dye injection and coagulation . </font><font dir="auto" style="vertical-align: inherit;">
+        Good penetration and leveling properties. Prevents contamination of dyeing machine. </font><font dir="auto" style="vertical-align: inherit;">
+        There is no fading of dye or color staining.</font></font><br><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segdisper PFW</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special high temperature </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        and high pressure dispersing </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        leveling agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Aromatic interfacial </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        sulfurizing agents and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        fatty acid esters</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">light yellow liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        weakly anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~3 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">High concentration pet dispersant. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Improves dyeability with strong penetrability, and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        excellent dyeing and dispersibility with small amount.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Seglevel AS</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Acid dye leveling </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special nonionic </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        alkylamine </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        derivatives</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Brown liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Bionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~2 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Maintains vivid colors in dyeing wool, wool and blended fabrics </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        . Promotes dye migration during dyeing, </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        provides leveling properties and covers the barrier. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent effect. Improves final dyeability.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Seglevel RD-30</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Reactive dye </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        penetrating leveling agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Polymer activator</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Colorless </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Bionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0.5~1.5 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">When used directly on cotton, T/C, etc., when dyeing with reactive dyes </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        , dye spots disappear, and the leveling properties and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        metal ion blocking power are excellent, so that </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        uniform and vivid colors can be obtained during dyeing.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segurtad A</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Retardant </font><font dir="auto" style="vertical-align: inherit;">for acrylic fibers</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special cationic </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        activator</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0.5~2% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        (based on fabric weight)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Controls rapid dyeing with </font><font dir="auto" style="vertical-align: inherit;">excellent dyeing slowing effect when dyeing with cationic dyes on acrylic fibers . </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Significantly reduces heating temperature. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Does not adversely affect various fastnesses.</font></font></td>
+  </tr>
+  <tr>
+</tr></tbody></table>
+
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">9. Fixing Agent</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segpix NF-100</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Acid dye </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        fixative</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Polyphenol </font><font dir="auto" style="vertical-align: inherit;">condensate</font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        ​</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Brown liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~6% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        (based on fabric weight)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Improves wet fastness when dyeing nylon with acid dyes . </font><font dir="auto" style="vertical-align: inherit;">
+        No discoloration, dye loss, or color change </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        on nylon fibers . </font><font dir="auto" style="vertical-align: inherit;">
+        Maintains hand feel and fastness better than tannic acid.</font></font><br><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segpix FX-250</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Direct dye and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        reactive dye </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        fixatives</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">polyamine </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        derivatives</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1.3% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        (based on fabric weight)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Excellent fixation of direct and reactive dyes. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Improved fastness to water, washing and sweat.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segpix FX-500</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Reactive dye </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        fixative</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">polyamine </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        derivatives</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1.3% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        (based on fabric weight)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Excellent fixation effect of direct and reactive dyes. </font><font dir="auto" style="vertical-align: inherit;">
+        Does not affect </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        color change after dyeing and changes in the feel of fabric .</font></font><br><font dir="auto" style="vertical-align: inherit;"></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segpix FX-600</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Direct dye </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        fastness </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        enhancer</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Tishiandi-amide</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1.5% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        (based on fabric weight)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Improves the washing and washing fastness of direct dyed fabrics </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        . There is no discoloration or dye migration during washing </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        .</font></font></td>
+  </tr>
+  <tr>
+</tr></tbody></table>
+
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">10. Soaping Agent/Reduction Cleaning Agent</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segbinu SA</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Refined </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        soap base</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        anion activator</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        weakly anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~3 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">It has excellent refining and shopping properties, </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        strong penetrability and alkali resistance. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        It has excellent dispersing power and anti-reattachment power.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segbinu </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                SM-130</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Low-foaming </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        reactive </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        soaping agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Polyhydric alcohol </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        fatty acid esters </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        and special </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        anionic compounds</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        weakly anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~4 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Excellent anti-contamination power for dyeing and dyeing </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        .. Excellent solubility in cold water due to low foaming </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        . Removes non-fixed reactive dyes. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Prevents dye discoloration .</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">SegSour TS</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Low-foaming </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        soap coating agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Polyhydric alcohol </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        fatty acid esters </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        and special </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        anionic compounds</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        weakly anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~4 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Excellent in removing unfixed reactive dyes and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        preventing discoloration of dyes, </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        contributing to increased color yield. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent in improving color and fastness.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segduct RCL</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Reduction cleaning and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        post-treatment agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Polyhydric </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        alcohol lactate</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish brown liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ambivalent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0.5~1 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Polyester. </font><font dir="auto" style="vertical-align: inherit;">
+        Vivid color and improved fastness </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        when working with T/A, T/W, T/C, and T/R by single-bath, single-bath, and two-bath dyeing methods . </font><font dir="auto" style="vertical-align: inherit;">
+        Avoidance of use of </font><font dir="auto" style="vertical-align: inherit;">
+        caustic soda when reducing T/W blends .</font></font><br><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"></font></td>
+  </tr>
+  <tr>
+</tr></tbody></table>
+
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">11. Anti-Static/Anti-Slip/Anti-Flame Agent</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segantista AZ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anti-static agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special cationic </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        compounds</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Colorless transparent </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~4% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        (based on fabric weight)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">After treatment and drying, </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        it forms a film on the surface of hydrophobic fibers, providing excellent anti-static </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        effect. There is no rust </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        at all on the processing pins or pin cloth.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segantista </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                    P-200</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        antistatic agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Polyhydric alcohol </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        fatty acid ester</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">light yellow liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0.5~1.5% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        (based on fabric weight)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Since it is nonionic, </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        it can be used in combination with other processing agents. It provides smoothness and flexibility.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segron AP</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Flame retardant for </font><font dir="auto" style="vertical-align: inherit;">synthetic fibers</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special Weapon Salt</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Colorless transparent </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">20 </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        ~100 %</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Excellent light resistance, corrosion </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        resistance, and high flame retardancy in sheets, covers, curtains, etc. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Good compatibility with water repellents.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segantislip SP</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anti-slip agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special Weapon Salt</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Translucent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~3% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        (based on fabric weight)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        An anti-slip finishing agent for </font><font dir="auto" style="vertical-align: inherit;">100% polyester fabrics, woven fabrics, and silk fabrics. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        When used in large quantities, the touch of the fabric deteriorates.</font></font></td>
+  </tr>
+  <tr>
+</tr></tbody></table>
+
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">12. Water Repellent Agent</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsilicon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                SG-100</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Silicone-based </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        water-repellent treatment agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Silicone emulsion</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Milky </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        white milk</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~5%</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">A water -repellent agent with excellent breathability and durability that </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        also shows flexibility. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        There is no generation of insoluble matter or clogging errors when used. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        It can be treated with resin and additives in the same bath, and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        has excellent washing fastness.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsilicon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                    CAT</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Silicone-based </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        water-repellent treatment </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        catalyst</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special polymer </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        compounds</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        1/12~1/16 </font><font dir="auto" style="vertical-align: inherit;">of SG-100</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent stability as a solution, unlike </font><font dir="auto" style="vertical-align: inherit;">general dispersed silicone catalysts .</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Seggard 300</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Fluorine-based water-repellent oil </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        -repellent treatment agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Fluorine polymer </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        compound</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Milky </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        white milk</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weak cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~4%</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Curing with a fluorine-based water-repellent, oil-repellent stain-repellent treatment agent </font><font dir="auto" style="vertical-align: inherit;">
+        provides a water-repellent effect that </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        is resistant to washing and dry cleaning. </font><font dir="auto" style="vertical-align: inherit;">
+        Provides excellent water-repellent and oil-repellent properties.</font></font><br><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"></font></td>
+    </tr>
+  <tr>
+</tr></tbody></table>
+
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">13. Silicone Softener</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsilicon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                  AM-20</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Amino </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone type </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Amino </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        emulsion</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Clear liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Softening agent for cotton and T/C blends. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Provides semi-permanent smoothness to treated fabrics. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Provides flexible resilience.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsilicon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                AM-300</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Amino </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone type </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Amino </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        emulsion</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Clear liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~3 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Provides semi-permanent smoothness to fabrics treated </font><font dir="auto" style="vertical-align: inherit;">with a flexible smoothing agent such as cotton or T/C blended fabrics . </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        There is no decrease in fastness.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsilicon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                AM-50</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">High concentration </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Amino </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        emulsion</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Clear liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~3 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">High concentration silicone-based softener. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Provides excellent durability and a soft touch.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsilicon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                AK-501</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Low-yellowing </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone-based </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Modified amino </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone special </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Blue </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Suitable for cotton knit fabrics due to low yellowing. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Improves elasticity, wrinkle recovery and provides rebound elasticity. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent durability against washing, etc.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsilicon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                AK-700</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Amino </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone type </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Modified amino </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone special </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">milky white </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        A flexible finishing agent </font><font dir="auto" style="vertical-align: inherit;">widely used in natural and synthetic fiber blends . </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Provides a glossy, soft texture and a thick, voluminous feel.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsilicon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                AMK</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Silicone </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        elastomer </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        flexible processing agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special reactive </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        elastomer </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        emulsion</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Milky </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        white milk</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">A reactive silicone-based softener that provides </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        a soft, rich, and smooth touch unique to elasticity </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        . Treated for high-quality consumable fabrics, 100% cotton fabrics and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        knits, cotton velour, etc.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsilicon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                NSY</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Non-yellowing </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone- </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        based softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Modified amino </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone special </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Suitable for cotton knit fabrics with no yellowing </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        , improves elasticity, wrinkle recovery and provides rebound elasticity.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsilicon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                PHS</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Dimethyl </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone type </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        flexible smoothing agent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Dimethyl </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        siloxane </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        emulsion</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Milky </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        white milk</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Provides smoothness </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        and flexibility when used as a pre-dyeing additive. Since it is nonionic, </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        it has good compatibility with various fiber processing agents.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">SegSilicon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                QSS</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Amino </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone type </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Amino </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        mixture</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Yellowish </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Rich in smoothness and excellent slipperiness. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Improves elasticity and provides volume. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Provides excellent rebound elasticity to knitted fabrics.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsilicon </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                SWL</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Absorbent modified </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Colorless transparent </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Clear liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Excellent water absorption due to excellent hydrophilicity. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Suitable for treatment of white matter as there is no yellowing. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent compatibility with other resin products.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Seg Cheese PCS</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Cheese </font><font dir="auto" style="vertical-align: inherit;">oil </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        for dyeing</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Advanced fatty acid </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        derivatives and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        silicone compounds</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Milky white </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        dough</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~6% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        (based on fabric weight)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Prevents yarn breakage during weaving and knitting </font><font dir="auto" style="vertical-align: inherit;">of blended fabrics . </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent emulsification and dispersibility.</font></font></td>
+    </tr>
+  <tr>
+</tr></tbody></table>
+
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">14. Softening Agent</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsoft CN</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">General softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Advanced fatty </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        acid amine </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        emulsion</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Milky white </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        flakes</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Improved moisture, hand feel, and elasticity with rich smoothness </font><font dir="auto" style="vertical-align: inherit;">in natural, synthetic fibers and blended products . </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Good napping properties and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        no decrease in friction fastness.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsoft ACN</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">General softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Advanced fatty </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        acid amine </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        emulsion</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Milky white </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        flakes</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Used in natural and synthetic fibers and their blends </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        to improve elasticity and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        provide thick volume. Less color change in dyed products.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsoft SCN</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Softener </font><font dir="auto" style="vertical-align: inherit;">for acrylic fibers</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Advanced fatty </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        acid amine </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        condensate</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Off-white </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        flakes</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Improves elasticity and adds volume </font><font dir="auto" style="vertical-align: inherit;">to natural and synthetic fibers and their blends . </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Provides excellent flexibility to acrylic fibers.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsoft ASF</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anionic </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special anionic </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        surfactant</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Light yellow </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        dough top</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Adds smoothness and hand feel to cotton and low-waisted media </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        . Avoid use with fluorescent dyes and compatible </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        cationic agents.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segsoft ACE</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Hygroscopic </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        softener</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Advanced fatty acid </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        amine </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        emulsions</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Off-white </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Provides moisture absorption with a hydrophilic softener. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Prevents yellowing and provides antistatic properties. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Has strong moisture absorption and low yellowing.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Seggimo GM-70</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Softener </font><font dir="auto" style="vertical-align: inherit;">for fabric processing</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">High melting point wax </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        and artificial wax </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        blends</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">milky white liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        weakly anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Excellent absorbency and pile </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        promotion of treated fabrics. Contains strong rust prevention properties.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Seggimo </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+              GM-70S</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Softener </font><font dir="auto" style="vertical-align: inherit;">for fabric processing</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">High melting point wax </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        and artificial wax </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        blends</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">milky white liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        weakly anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3~8 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Excellent absorbency and pile </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        promotion of treated fabrics. Contains strong rust prevention properties. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Provides slight water repellency to cotton.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segtex US-30</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Rebound elastic </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        urethane </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        resin</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Polymer </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        resin </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        mixture</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">milky white liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic/ </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        weakly anionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2~7 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Provides flexibility to natural and synthetic fibers. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent resilience, recovery </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        and wrinkle resistance. Almost no yellowing.</font></font></td>
+    </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segtex ULX</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">U/V blocker</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Benzophenone </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        type</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Milky white </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        discharge</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Bionic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~3% </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        (by weight of solution)</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">It has excellent UV protection performance and </font><font dir="auto" style="vertical-align: inherit;">
+        is convenient and stable </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        to use in combination with a softener or post-processing manufacturing .</font></font><br><font dir="auto" style="vertical-align: inherit;"></font></td>
+    </tr>
+  
+  </tbody></table>
+
+<h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">15. Machine detergent</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segphone RNX</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Silicone </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        sticky substance </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        remover</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Special </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        surfactant</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Light yellow </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        transparent liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Weakly cationic</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">12~20 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Removes sticky substances from denatured </font><font dir="auto" style="vertical-align: inherit;">silicone and dimethyl silicone with a super strong detergent . </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        No change in the physical properties of the fabric after treatment.</font></font></td>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Segclean </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+                CL-300</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Machine scale </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        remover</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Amphoteric </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        surfactant</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Brown transparent </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        liquid</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ambivalent</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1~3 g/ℓ</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Removal of old residue from dyeing machines and </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        oligomers generated during PET dyeing. </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Excellent ability to prevent re-attachment of various contaminants.</font></font></td>
+  </tr>
+
+  </tbody></table>
+
+    <h2><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">16. Bio</font></font></h2>
+<table border="1">
+  <tbody><tr>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">product</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">use</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Main composition</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">appearance</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Ionic</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">amount used</font></font></th>
+    <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">characteristic</font></font></th>
+  </tr>
+  <tr>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">SegBio 250</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Stone </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        washing</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Cellulase</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">White powder</font></font></td>
+    <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">neutrality</font></font></td>
+    <td></td>
+    <td><font dir="auto" style="vertical-align: inherit;"></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        It is excellent for color treatment of jeans and cotton products with </font><font dir="auto" style="vertical-align: inherit;">super strong stone washing detergent . </font></font><br><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        The fabric is soft after treatment.</font></font></td>
+  </tr>
+  </tbody></table>
+
+<style>
+    .thumbnail-container {
+      display: flex;
+      gap: 20px;
+      margin: 20px;
+    }
+    .thumbnail {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1001;
+  padding: 10px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+}
+
+.arrow.left { left: 30px; }
+.arrow.right { right: 30px; }
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  background: rgba(0,0,0,0.3);
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+  </style>
+</head>
+<body>
+
+<h2>picture</h2>
+<div class="thumbnail-container">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/520193579_755075907110945_7123353988614948261_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=d1nsnB4r7vEQ7kNvwG5tSrP&_nc_oc=AdmXQIzp_rF9f053ro2jL1FLMmBNz12vZbYiRS9fO5rUnD2mWTONOFrTwVM3oVS0m6M&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wEZYwrQz1dQnwx2Qy5v_Ht1qCss-yzbdpKYJ-VLFgA6vA&oe=68A839FA" class="thumbnail" onclick="openModal(0)">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/521498034_1130328798907943_9069002703257806702_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=U87O4DCucCcQ7kNvwGLJHm8&_nc_oc=AdlxLfsUxmuCvk1q_H7FbO9Kn2l_1YSO4g03CI4hqcfoWpxLEcUyV5gVpfAmu02Q-fE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFV8uOhL-eKdB1rGKXpL0rAxk6aQo1QvzSPLsJ4ySEg3A&oe=68A85003" class="thumbnail" onclick="openModal(1)">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/522741285_734137275894674_5069962331356470098_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=3_ITXaUjq-wQ7kNvwHEP2W8&_nc_oc=AdmWG4xrs8lvpLlmPWnSlT1L8pNPXivxUPXFjxWLsMF15xhyLrKBObdPFzCcmFP1w0A&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wE0PvIwupJ6ProUHdlEFjBi-3ND6Jb0DFLGEctWGyrLYA&oe=68A855E0" class="thumbnail" onclick="openModal(2)">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/519676428_1836528563940765_8058898873841486152_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_ohc=d4sbr0EWZ64Q7kNvwEBItKb&_nc_oc=Adk18yzAAHnwm8aD1G6rKxUTSV0iPw9hc_DxjlQdnNI8zsKq6OzivSV-VSABs4xDIlE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFupy6uFO1dkxfP3_uh9PmJEv50c0R2x9UBAOTNbAwzbw&oe=68A867AB" class="thumbnail" onclick="openModal(3)">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/521286891_23972975352358544_7949571081586645882_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=ag1vtopRq9oQ7kNvwH07_67&_nc_oc=AdmRuVL-UlBAycw_AYKzgjh-Xxeb2Hr9jhvwrarfo5l0JJF8g4G6kKq3gT3IkHjFbQ0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wEip-6ig7wGzoAWTM1aPr1vclZDiAalWYhs3j1mXI1lVg&oe=68AD2FE0" class="thumbnail" onclick="openModal(4)">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/520200394_1130776672272778_5289192762304241945_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=H3uYkWqvIyoQ7kNvwGEUo5Y&_nc_oc=AdljhaOkGBQD4f1dIG4slYwW98Vs4K4Y7UOjyIjImhfQOJq6-2Nrdxw8DGkUw8K9R3g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFKjr7JV_xQKjrqjLIwbFiPM0tTcaJpx-p5ynJFRN4aGg&oe=68AD3677" class="thumbnail" onclick="openModal(5)">
+<img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/519725780_1235572811193353_6356580083901605239_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_ohc=E19Vq7OEZE8Q7kNvwFMlMBf&_nc_oc=AdlLUwCqHsjj3CGI5dV52qkPe_BOJ0uxKz7dJE23V0r7ckE0eooYeLE3YM_awbe2EmE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFPONzxevlzy-s_I0CHzpoV2UOuuFQ44e5na2ii9V3s7Q&oe=68AD2CB9" class="thumbnail" onclick="openModal(6)">
+</div>
+
+<!-- 최종 modal 구조 예시 -->
+<div class="modal" id="modal">
+  <span class="arrow left" onclick="prevImage()">&#10094;</span>
+  <img id="modal-img">
+  <span class="arrow right" onclick="nextImage()">&#10095;</span>
+  <span class="close-btn" onclick="closeModal()">X</span>
+</div>
+
+<script>
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+
+  const imageSources = [
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/520193579_755075907110945_7123353988614948261_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=d1nsnB4r7vEQ7kNvwG5tSrP&_nc_oc=AdmXQIzp_rF9f053ro2jL1FLMmBNz12vZbYiRS9fO5rUnD2mWTONOFrTwVM3oVS0m6M&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wEZYwrQz1dQnwx2Qy5v_Ht1qCss-yzbdpKYJ-VLFgA6vA&oe=68A839FA",
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/521498034_1130328798907943_9069002703257806702_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=U87O4DCucCcQ7kNvwGLJHm8&_nc_oc=AdlxLfsUxmuCvk1q_H7FbO9Kn2l_1YSO4g03CI4hqcfoWpxLEcUyV5gVpfAmu02Q-fE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFV8uOhL-eKdB1rGKXpL0rAxk6aQo1QvzSPLsJ4ySEg3A&oe=68A85003",
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/522741285_734137275894674_5069962331356470098_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=3_ITXaUjq-wQ7kNvwHEP2W8&_nc_oc=AdmWG4xrs8lvpLlmPWnSlT1L8pNPXivxUPXFjxWLsMF15xhyLrKBObdPFzCcmFP1w0A&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wE0PvIwupJ6ProUHdlEFjBi-3ND6Jb0DFLGEctWGyrLYA&oe=68A855E0",
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/519676428_1836528563940765_8058898873841486152_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_ohc=d4sbr0EWZ64Q7kNvwEBItKb&_nc_oc=Adk18yzAAHnwm8aD1G6rKxUTSV0iPw9hc_DxjlQdnNI8zsKq6OzivSV-VSABs4xDIlE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFupy6uFO1dkxfP3_uh9PmJEv50c0R2x9UBAOTNbAwzbw&oe=68A867AB",
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/521286891_23972975352358544_7949571081586645882_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=ag1vtopRq9oQ7kNvwH07_67&_nc_oc=AdmRuVL-UlBAycw_AYKzgjh-Xxeb2Hr9jhvwrarfo5l0JJF8g4G6kKq3gT3IkHjFbQ0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wEip-6ig7wGzoAWTM1aPr1vclZDiAalWYhs3j1mXI1lVg&oe=68AD2FE0",
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/520200394_1130776672272778_5289192762304241945_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=H3uYkWqvIyoQ7kNvwGEUo5Y&_nc_oc=AdljhaOkGBQD4f1dIG4slYwW98Vs4K4Y7UOjyIjImhfQOJq6-2Nrdxw8DGkUw8K9R3g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFKjr7JV_xQKjrqjLIwbFiPM0tTcaJpx-p5ynJFRN4aGg&oe=68AD3677",
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/519725780_1235572811193353_6356580083901605239_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_ohc=E19Vq7OEZE8Q7kNvwFMlMBf&_nc_oc=AdlLUwCqHsjj3CGI5dV52qkPe_BOJ0uxKz7dJE23V0r7ckE0eooYeLE3YM_awbe2EmE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFPONzxevlzy-s_I0CHzpoV2UOuuFQ44e5na2ii9V3s7Q&oe=68AD2CB9"
+  ];
+
+  let currentIndex = 0;
+
+  function openModal(index) {
+    currentIndex = index;
+    showImage();
+    modal.style.display = "flex";
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  function showImage() {
+    modalImg.src = imageSources[currentIndex];
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
+    showImage();
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % imageSources.length;
+    showImage();
+  }
+</script>
+
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>SEOGWANG TECH</p>
+    <p>Headquarters, Factory: 529 Daegodbuk-ro, Daegod-myeon, Gimpo-si, Gyeonggi-do (1,2 buildings)</p>
+    <p>TEL 031.983.4778 FAX 031.983.4779</p>
+  </section>
+
+  <footer>
+    <div class="header-content"> 
+      <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/515272466_1397998971458140_2352081785412137135_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dSwYCfNpR1cQ7kNvwEcrW7z&_nc_oc=Adk6F8U5pQ7GhzuYwJPJi7WfpvILGGhAg0erDSgNwmCJiYmfIUyCYytQXY1EqlV3p1w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEDEN1M88SDeDh7hJVI0R0HABSZLYHhFm9V6oODBGlqhw&oe=68A66826" alt="세광테크 로고" class="logo-img">
+      <div class="logo-text">Seogwang Tech</div>
+    © seogwang tech company Limited
+  </footer>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .hero {
+      background-image: url('https://scontent-icn2-1.cdninstagram.com/v/t1.15752-9/522298888_761460053232865_8115702079711008189_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dFOXorLMjOkQ7kNvwFMe8Ts&_nc_oc=Adnl-LQWsaZi5hKEgN22FlhLS2HHcW9_nRwiwDuQv0YvrIXbnu3f3lcMpTcwjqtRigg&_nc_zt=23&_nc_ht=scontent-icn2-1.cdninstagram.com&oh=03_Q7cD2wGkKXF-eFXwBHA9zMD-5zP60EKILoSZ9wOVNDa7PWwdNA&oe=68AD2302');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      image-rendering: auto; /* 화질 향상용 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 40px 60px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .overlay h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .overlay p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .overlay button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .overlay button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+  <script>
+  const heroSection = document.querySelector('.hero-section');
+
+  const images = [
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/522298888_761460053232865_8115702079711008189_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dFOXorLMjOkQ7kNvwFMe8Ts&_nc_oc=Adnl-LQWsaZi5hKEgN22FlhLS2HHcW9_nRwiwDuQv0YvrIXbnu3f3lcMpTcwjqtRigg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFYei3fetEQ-Fu374kYZM7-9KOdh-VVx0Gb-ZAqWkzyCQ&oe=68AD5B42", // 첫 번째 이미지 경로 (예: "images/factory1.jpg")
+    "https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/522306285_4209073365989821_4150928157845549537_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_ohc=57kPdVuT7MIQ7kNvwHIw0l5&_nc_oc=AdkT6gfbVQx-tiBYnrFZHUhWMLqnGZKkPO4YSAN5JFJkkoR6JwQRfV2dVy815erU0jU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wEwJknmf34Ul1EVvmUqehOmhUlWx6XFJ8d1Hdm8o2D0bA&oe=68AD5AB8", // 두 번째 이미지 경로
+  ];
+
+  let index = 0;
+
+  function changeBackground() {
+    heroSection.style.backgroundImage = `url(${images[index]})`;
+    index = (index + 1) % images.length;
+  }
+
+  changeBackground(); // 초기 이미지 설정
+  setInterval(changeBackground, 4000); // 4초마다 변경
+</script>
+
+
+</body>
+</html>
