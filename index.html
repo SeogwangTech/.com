@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seogwang Tech</title>
   <style>
     * {
@@ -259,29 +259,66 @@ nav:hover .dropdown-panel {
 .dropdown-content button:hover {
   text-decoration: underline;
 }
-    .container {
-    width: 90%;       /* 화면 너비의 90%로 자동 조절 */
-    max-width: 800px; /* 너무 커지지 않도록 최대값 설정 */
-    margin: 0 auto;   /* 가운데 정렬 */
-    padding: 20px;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 100%;
+  padding: 20px;
+}
+
+/* 이미지가 화면을 넘지 않도록 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 텍스트 박스나 콘텐츠를 정렬 */
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 상단 메뉴바도 반응형으로 설정 */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding: 10px;
+  flex: 1;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
   }
 
-  /* 글자 크기 등도 상대 단위로 조절 */
-  h1 {
-    font-size: 6vw;   /* 화면 너비에 따라 글자 크기 변동 */
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  /* 화면 너비가 600px 이하일 때 스타일 변경 */
-  @media (max-width: 600px) {
-    .container {
-      padding: 10px;
-    }
-
-    h1 {
-      font-size: 8vw;
-    }
+  .section {
+    padding: 10px;
+    font-size: 0.95rem;
   }
-
+}
   </style>
 </head>
 <body>
@@ -350,6 +387,18 @@ nav:hover .dropdown-panel {
   padding: 0;
   font-family: 'Arial', sans-serif;
 }
+</style>
+
+<style>
+  .pc-version {
+    display: none;
+  }
+
+  .mobile-version {
+    display: none;
+  }
+
+  
 </style>
 
 <style>
@@ -500,7 +549,6 @@ We are highly trusted in the domestic market through customized products tailore
   z-index: 1001;
 }
   </style>
-<meta name="naver-site-verification" content="f72bd2155d690121fc3aeb3c40135cf897ee459e" />
 </head>
 <body>
 
@@ -570,6 +618,10 @@ We are highly trusted in the domestic market through customized products tailore
     <p>SEOGWANG TECH</p>
     <p>Headquarters, Factory: 529 Daegodbuk-ro, Daegod-myeon, Gimpo-si, Gyeonggi-do (1,2 buildings)</p>
     <p>TEL 031.983.4778 FAX 031.983.4779</p>
+    <p>e-mail: siddikrahman6616@gmail.com<BR>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leebs103@hotmail.com</p>
+  </section>
+
   <footer>
     <div class="header-content"> 
       <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/515272466_1397998971458140_2352081785412137135_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dSwYCfNpR1cQ7kNvwEcrW7z&_nc_oc=Adk6F8U5pQ7GhzuYwJPJi7WfpvILGGhAg0erDSgNwmCJiYmfIUyCYytQXY1EqlV3p1w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEDEN1M88SDeDh7hJVI0R0HABSZLYHhFm9V6oODBGlqhw&oe=68A66826" alt="세광테크 로고" class="logo-img">
