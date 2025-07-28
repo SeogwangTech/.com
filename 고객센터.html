@@ -259,6 +259,28 @@ nav:hover .dropdown-panel {
 .dropdown-content button:hover {
   text-decoration: underline;
 }
+   .container {
+    width: 90%;       /* 화면 너비의 90%로 자동 조절 */
+    max-width: 800px; /* 너무 커지지 않도록 최대값 설정 */
+    margin: 0 auto;   /* 가운데 정렬 */
+    padding: 20px;
+  }
+
+  /* 글자 크기 등도 상대 단위로 조절 */
+  h1 {
+    font-size: 6vw;   /* 화면 너비에 따라 글자 크기 변동 */
+  }
+
+  /* 화면 너비가 600px 이하일 때 스타일 변경 */
+  @media (max-width: 600px) {
+    .container {
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 8vw;
+    }
+  }
 
   </style>
 <meta name="naver-site-verification" content="f72bd2155d690121fc3aeb3c40135cf897ee459e" />
