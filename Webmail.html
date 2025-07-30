@@ -88,9 +88,9 @@
 }
 .main-button {
   display: block;
-  width: 100%;
+  width: 300px; /* 원하는 너비로 조정 */
   padding: 12px;
-  margin-top: 12px;
+  margin: 12px auto 0; /* 가운데 정렬 유지하면서 위 여백 설정 */
   background-color: #004080;
   color: white;
   font-weight: bold;
@@ -102,6 +102,7 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   transition: background-color 0.3s ease;
 }
+
 
 .main-button:hover {
   background-color: #0066cc;
@@ -120,38 +121,155 @@
 </head>
 <body>
   <div class="login-container">
-    <h2>Webmail 로그인</h2>
-    <form onsubmit="return validateForm()">
-  <label for="email">이메일 주소</label>
-  <input type="text" id="email" placeholder="이메일을 입력하세요">
+    <h2 class="login-title">Webmail 로그인</h2>
 
-  <label for="password">암호</label>
-  <input type="password" id="password" placeholder="암호를 입력하세요">
+<label for="email" class="label-email">이메일 주소</label>
+<input type="text" id="email" placeholder="이메일을 입력하세요">
 
-  <!-- 로그인 버튼 -->
-  <button type="submit" class="main-button">로그인</button>
+<label for="password" class="label-password">암호</label>
+<input type="password" id="password" placeholder="암호를 입력하세요">
 
-  <!-- 회원가입 버튼 -->
-  <a href="회원가입.html" class="main-button signup-link">회원가입</a>
-</form>
-    <div class="reset">
-      <a href="#">암호 재설정</a>
-    </div>
-    <div class="language">
-      언어: English | 한국어 | Español | العربية | Français ...
-    </div>
-  </div>
-  <script>
-    function validateForm() {
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value.trim();
+<button id="loginBtn" class="login-btn">로그인</button>
 
-      if (!email || !password) {
-        alert("이메일과 암호를 모두 입력해주세요.");
-        return false;
-      }
-      return true;
+<script>
+  document.getElementById("loginBtn").addEventListener("click", function () {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    // 간단한 유효성 검사
+    if (!email || !password) {
+      alert("이메일과 암호를 모두 입력해주세요.");
+      return;
     }
+
+    // 로그인 검증 (예시)
+    // 실제 환경에서는 서버에서 검증합니다.
+    if (email === "a01076308608@gmail.com" && password === "yourPassword123") {
+      alert("✅ 로그인 성공! 환영합니다.");
+      window.location.href = "/inbox.html"; // 예: 로그인 후 이동할 페이지
+    } else {
+      alert("❌ 로그인 실패! 이메일 또는 암호가 틀렸습니다.");
+    }
+  });
+</script>
+
+<a href="회원가입.html" class="main-button signup-link signup-btn">회원가입</a>
+
+<div class="reset">
+  <a href="#" class="reset-link">암호 재설정</a>
+</div>
+
+<div class="language" style="margin-top: 20px;">
+  <span class="language-label">언어:</span>
+  <button class="lang-button" onclick="applyLanguage('ko')">한국어</button>
+  <button class="lang-button" onclick="applyLanguage('en')">English</button>
+</div>
+
+<style>
+  .lang-button {
+  margin: 6px;
+  padding: 8px 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.lang-button:hover {
+  background-color: #cccccc;
+}
+</style>
+
+  <script>
+   const translations = {
+  ko: {
+    title: "Webmail 로그인",
+    email: "이메일 주소",
+    emailPlaceholder: "이메일을 입력하세요",
+    password: "암호",
+    passwordPlaceholder: "암호를 입력하세요",
+    loginBtn: "로그인",
+    signupBtn: "회원가입",
+    resetLink: "암호 재설정",
+    languageLabel: "언어:"
+  },
+  en: {
+    title: "Webmail Login",
+    email: "Email Address",
+    emailPlaceholder: "Enter your email",
+    password: "Password",
+    passwordPlaceholder: "Enter your password",
+    loginBtn: "Log In",
+    signupBtn: "Sign Up",
+    resetLink: "Reset Password",
+    languageLabel: "Language:"
+  }
+};
+
+function applyLanguage(lang) {
+  localStorage.setItem("preferredLanguage", lang);
+  const t = translations[lang];
+
+  document.querySelector(".login-title").innerText = t.title;
+  document.querySelector(".label-email").innerText = t.email;
+  document.getElementById("email").placeholder = t.emailPlaceholder;
+
+  document.querySelector(".label-password").innerText = t.password;
+  document.getElementById("password").placeholder = t.passwordPlaceholder;
+
+  document.querySelector(".login-btn").innerText = t.loginBtn;
+  document.querySelector(".signup-btn").innerText = t.signupBtn;
+  document.querySelector(".reset-link").innerText = t.resetLink;
+  document.querySelector(".language-label").innerText = t.languageLabel;
+}
+
+window.onload = function () {
+  const storedLang = localStorage.getItem("preferredLanguage");
+  const browserLang = navigator.language || navigator.userLanguage;
+  const lang = storedLang || (browserLang.startsWith("en") ? "en" : "ko");
+  applyLanguage(lang);
+};
+const nodemailer = require("nodemailer");
+
+// 이메일 전송 함수
+function sendLoginNotification(userEmail) {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "seogwangtech@gmail.com",        // 여기엔 본인의 이메일
+      pass: "leeseogwang20!",           // Gmail 앱 비밀번호 필요
+    },
+  });
+
+  const mailOptions = {
+    from: "YOUR_EMAIL@gmail.com",
+    to: "seogwangtech@gmail.com",           // 본인에게 전송
+    subject: "누군가 로그인했습니다!",
+    text: `사용자 ${userEmail} 이 로그인했습니다.`,
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.error("이메일 전송 실패:", error);
+    } else {
+      console.log("이메일 전송 성공:", info.response);
+    }
+  });
+}
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
+
+  // 로그인 검증 로직 ...
+
+  // 로그인 성공 시 이메일 전송
+  sendLoginNotification(email);
+
+  res.send("로그인 성공");
+});
+
   </script>
 </body>
 </html>
