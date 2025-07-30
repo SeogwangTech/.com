@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입 - Seogwang Webmail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: linear-gradient(to right, #eaf2ff, #f4f7ff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .signup-container {
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      max-width: 450px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #003366;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .signup-button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0055cc;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .signup-button:hover {
+      background-color: #003f99;
+    }
+
+    .back-link {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    .back-link a {
+      color: #666;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>회원가입</h2>
+    <form onsubmit="return validateSignupForm()">
+      <label for="name">이름</label>
+      <input type="text" id="name" placeholder="이름을 입력하세요">
+
+      <label for="email">이메일 주소</label>
+      <input type="email" id="email" placeholder="이메일을 입력하세요">
+
+      <label for="password">암호</label>
+      <input type="password" id="password" placeholder="암호를 입력하세요">
+
+      <label for="confirm">암호 확인</label>
+      <input type="password" id="confirm" placeholder="암호를 다시 입력하세요">
+
+      <button type="submit" class="signup-button">회원가입</button>
+    </form>
+    <div class="back-link">
+      이미 계정이 있으신가요? <a href="index.html">로그인하기</a>
+    </div>
+  </div>
+
+  <script>
+    function validateSignupForm() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm").value;
+
+      if (!name || !email || !password || !confirm) {
+        alert("모든 필드를 입력해주세요.");
+        return false;
+      }
+
+      if (password !== confirm) {
+        alert("암호가 일치하지 않습니다.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>
