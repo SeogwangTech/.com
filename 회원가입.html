@@ -79,46 +79,124 @@
 </head>
 <body>
   <div class="signup-container">
-    <h2>회원가입</h2>
-    <form onsubmit="return validateSignupForm()">
-      <label for="name">이름</label>
-      <input type="text" id="name" placeholder="이름을 입력하세요">
+    <h2 class="form-title">회원가입</h2>
 
-      <label for="email">이메일 주소</label>
-      <input type="email" id="email" placeholder="이메일을 입력하세요">
+<label for="name" class="label-name">이름</label>
+<input type="text" id="name" placeholder="이름을 입력하세요">
 
-      <label for="password">암호</label>
-      <input type="password" id="password" placeholder="암호를 입력하세요">
+<label for="email" class="label-email">이메일 주소</label>
+<input type="email" id="email" placeholder="이메일을 입력하세요">
 
-      <label for="confirm">암호 확인</label>
-      <input type="password" id="confirm" placeholder="암호를 다시 입력하세요">
+<label for="password" class="label-password">암호</label>
+<input type="password" id="password" placeholder="암호를 입력하세요">
 
-      <button type="submit" class="signup-button">회원가입</button>
-    </form>
-    <div class="back-link">
-      이미 계정이 있으신가요? <a href="index.html">로그인하기</a>
-    </div>
-  </div>
+<label for="confirm" class="label-confirm">암호 확인</label>
+<input type="password" id="confirm" placeholder="암호를 다시 입력하세요">
+
+<button id="signupBtn" class="signup-button">회원가입</button>
+
+
+
+<div class="language">
+  <span class="lang-label">언어:</span>
+  <a href="#" onclick="changeSignupLanguage('ko'); return false;">한국어</a> |
+  <a href="#" onclick="changeSignupLanguage('en'); return false;">English</a>
+</div>
+
+<div class="back-link">
+  <span class="login-message">이미 계정이 있으신가요?</span>
+  <a href="Webmail.html" class="login-link">로그인하기</a>
+</div>
+
+<script>
+  const signupTranslations = {
+  ko: {
+    title: "회원가입",
+    name: "이름",
+    namePlaceholder: "이름을 입력하세요",
+    email: "이메일 주소",
+    emailPlaceholder: "이메일을 입력하세요",
+    password: "암호",
+    passwordPlaceholder: "암호를 입력하세요",
+    confirm: "암호 확인",
+    confirmPlaceholder: "암호를 다시 입력하세요",
+    signupBtn: "회원가입",
+    languageLabel: "언어:",
+    loginMessage: "이미 계정이 있으신가요?",
+    loginLink: "로그인하기"
+  },
+  en: {
+    title: "Sign Up",
+    name: "Name",
+    namePlaceholder: "Please enter your name",
+    email: "Email Address",
+    emailPlaceholder: "Please enter your email",
+    password: "Password",
+    passwordPlaceholder: "Please enter your password",
+    confirm: "Confirm Password",
+    confirmPlaceholder: "Please re-enter your password",
+    signupBtn: "Sign Up",
+    languageLabel: "Language:",
+    loginMessage: "Already have an account?",
+    loginLink: "Log In"
+  }
+};
+
+function changeSignupLanguage(lang) {
+  localStorage.setItem('preferredLanguage', lang);
+  const t = signupTranslations[lang];
+
+  document.querySelector(".form-title").innerText = t.title;
+  document.querySelector(".label-name").innerText = t.name;
+  document.getElementById("name").placeholder = t.namePlaceholder;
+
+  document.querySelector(".label-email").innerText = t.email;
+  document.getElementById("email").placeholder = t.emailPlaceholder;
+
+  document.querySelector(".label-password").innerText = t.password;
+  document.getElementById("password").placeholder = t.passwordPlaceholder;
+
+  document.querySelector(".label-confirm").innerText = t.confirm;
+  document.getElementById("confirm").placeholder = t.confirmPlaceholder;
+
+  document.querySelector(".signup-button").innerText = t.signupBtn;
+
+  document.querySelector(".lang-label").innerText = t.languageLabel;
+  document.querySelector(".login-message").innerText = t.loginMessage;
+  document.querySelector(".login-link").innerText = t.loginLink;
+}
+  </script>
 
   <script>
-    function validateSignupForm() {
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value;
-      const confirm = document.getElementById("confirm").value;
+  // ... 기존 changeSignupLanguage 함수 아래에 추가
 
-      if (!name || !email || !password || !confirm) {
-        alert("모든 필드를 입력해주세요.");
-        return false;
-      }
+  document.getElementById("signupBtn").addEventListener("click", function () {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirm = document.getElementById("confirm").value;
 
-      if (password !== confirm) {
-        alert("암호가 일치하지 않습니다.");
-        return false;
-      }
-
-      return true;
+    if (!name || !email || !password || !confirm) {
+      alert("모든 항목을 입력해주세요.");
+      return;
     }
-  </script>
+
+    if (password !== confirm) {
+      alert("암호가 일치하지 않습니다.");
+      return;
+    }
+
+    // 회원가입 완료 처리
+    alert("🎉 회원가입이 완료되었습니다!");
+
+    // 로그인 처리 시뮬레이션: 사용자 정보를 localStorage에 저장
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userEmail", email);
+
+    // 환영 페이지로 이동
+    window.location.href = "welcome.html";  // 원하는 경로로 수정하세요
+  });
+</script>
+
 </body>
 </html>
