@@ -305,20 +305,42 @@ img {
   text-align: center;
 }
 @media screen and (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
-
-  .navbar {
+  .nav-container {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    gap: 10px;
   }
 
-  .section {
-    padding: 10px;
-    font-size: 0.95rem;
+  .nav-container a {
+    padding: 10px 0;
   }
 }
+@media screen and (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -673,6 +695,34 @@ We are highly trusted in the domestic market through customized products tailore
   </section>
 
   <style>
+    @media (max-width: 768px) {
+  .thumbnail-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .thumbnail {
+    width: 45%;
+    height: auto;
+  }
+
+  .arrow {
+    font-size: 30px;
+    padding: 8px;
+  }
+
+  .close-btn {
+    font-size: 24px;
+    padding: 6px 10px;
+  }
+
+  .modal img {
+    max-width: 95%;
+    max-height: 70%;
+  }
+}
+
     .thumbnail-container {
       display: flex;
       gap: 20px;
