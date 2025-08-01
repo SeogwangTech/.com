@@ -259,8 +259,30 @@ nav:hover .dropdown-panel {
 .dropdown-content button:hover {
   text-decoration: underline;
 }
+.container {
+    width: 90%;       /* 화면 너비의 90%로 자동 조절 */
+    max-width: 800px; /* 너무 커지지 않도록 최대값 설정 */
+    margin: 0 auto;   /* 가운데 정렬 */
+    padding: 20px;
+  }
 
+  /* 글자 크기 등도 상대 단위로 조절 */
+  h1 {
+    font-size: 6vw;   /* 화면 너비에 따라 글자 크기 변동 */
+  }
+
+  /* 화면 너비가 600px 이하일 때 스타일 변경 */
+  @media (max-width: 600px) {
+    .container {
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 8vw;
+    }
+  }
   </style>
+<meta name="naver-site-verification" content="f72bd2155d690121fc3aeb3c40135cf897ee459e" />
 </head>
 <body>
 
@@ -284,6 +306,7 @@ nav:hover .dropdown-panel {
     <a href="ceo.html">Chairman's Greetings</a>
     <a href="경영.html">Management</a>
     <a href="사업.html">Business Areas</a>
+    <a href="히스토리.html">Company History</a>
   </div>
   <div class="dropdown-column">
     <strong>Product Introduction</strong>
@@ -330,39 +353,48 @@ nav:hover .dropdown-panel {
 }
 </style>
 
-<section class="sustainability-section">
-  <h2>Sustainable Management System</h2>
-  <p>We are committed to for people, the environment and future generations.</p>
+<style>
+    .csv-section {
+  max-width: 1000px;
+  padding: 40px 60px;
+  margin: 0;              /* 중앙 정렬 제거 */
+  text-align: left;       /* 텍스트 왼쪽 정렬 */
+}
+</style>
 
-  <h3>environment</h3>
+<section class="csv-section">
+  <h2>🧪 Shared Value Management (CSV)</h2>
+  <p>
+    Our company utilizes the technology and resources of the chemical industry to
+  </p>
+
+  <h3>🛠 Strategic Approach</h3>
   <ul>
-    <li>Development of eco-friendly raw materials and products</li>
-    <li>Improve energy efficiency</il>
-    <li>Expanding waste recycling</li>
+    <li>Solving environmental problems through the development of sustainable chemical technologies</li>
+    <li>Contributing to the transformation of industrial structure through eco-friendly polymer and material technology</li>
+    <li>Technology exchange and quality innovation with supply chain partners</li>
+    <li>Ensuring regional safety through introduction of hazardous material management technology</li>
+    <li>Training young technical talents and building a network of professional personnel</li>
   </ul>
 
-  <h3>society</h3>
-  <ul>
-    <li>Fair trade and coexistence with partners</li>
-    <li>Strengthening employee protection</li>
-    <li>Social contribution activities</li>
-  </ul>
-
-  <h3>Governing structure</h3>
-  <ul>
-    <li>Ethical Management and Internal Control</li>
-    <li>Disclosure of information and establishment of trust</li>
-    <li>Comprehensive ESG Implementation</li>
-  </ul>
-
-  <div class="promise-box">
-    <h4>Our Promise</h4>
+  <div class="csv-examples">
+    <h4>📘 Real-world examples</h4>
     <ul>
-      <li>Establishing and implementing carbon emission reduction goals</li>
-      <li>Decision-making based on ESG criteria</li>
+      <li>Development and field application of CO₂ reduction catalyst technology</li>
+      <li>Joint research on eco-friendly materials to replace hazardous substances</li>
+      <li>Support for chemical safety education and experimental kits for the community</li>
     </ul>
   </div>
 </section>
+
+<style>
+    .csv-examples {
+  background-color: #dceef5;
+  padding: 20px 30px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+</style>
 
 <style>
     .thumbnail-container {
@@ -429,7 +461,7 @@ nav:hover .dropdown-panel {
 </head>
 <body>
 
-<h2>picture</h2>
+<h2>Picture</h2>
 <div class="thumbnail-container">
 <img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/520193579_755075907110945_7123353988614948261_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=d1nsnB4r7vEQ7kNvwG5tSrP&_nc_oc=AdmXQIzp_rF9f053ro2jL1FLMmBNz12vZbYiRS9fO5rUnD2mWTONOFrTwVM3oVS0m6M&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wEZYwrQz1dQnwx2Qy5v_Ht1qCss-yzbdpKYJ-VLFgA6vA&oe=68A839FA" class="thumbnail" onclick="openModal(0)">
 <img src="https://scontent-icn2-1.xx.fbcdn.net/v/t1.15752-9/521498034_1130328798907943_9069002703257806702_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=U87O4DCucCcQ7kNvwGLJHm8&_nc_oc=AdlxLfsUxmuCvk1q_H7FbO9Kn2l_1YSO4g03CI4hqcfoWpxLEcUyV5gVpfAmu02Q-fE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.xx&oh=03_Q7cD2wFV8uOhL-eKdB1rGKXpL0rAxk6aQo1QvzSPLsJ4ySEg3A&oe=68A85003" class="thumbnail" onclick="openModal(1)">
@@ -490,7 +522,7 @@ nav:hover .dropdown-panel {
 </script>
 
 
- <section class="contact">
+  <section class="contact">
     <h2>Contact Us</h2>
     <p>SEOGWANG TECH</p>
     <p>Headquarters, Factory: 529 Daegodbuk-ro, Daegod-myeon, Gimpo-si, Gyeonggi-do (1,2 buildings)</p>
@@ -504,7 +536,37 @@ nav:hover .dropdown-panel {
       <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/515272466_1397998971458140_2352081785412137135_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dSwYCfNpR1cQ7kNvwEcrW7z&_nc_oc=Adk6F8U5pQ7GhzuYwJPJi7WfpvILGGhAg0erDSgNwmCJiYmfIUyCYytQXY1EqlV3p1w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEDEN1M88SDeDh7hJVI0R0HABSZLYHhFm9V6oODBGlqhw&oe=68A66826" alt="세광테크 로고" class="logo-img">
       <div class="logo-text">Seogwang Tech</div>
     © seogwang tech company Limited
+    </div>
+    <div class="webmail-button">
+    <a href="login.html" target="_blank">Webmail</a>
+  </div>
   </footer>
+
+<style>
+    .webmail-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.webmail-button a {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #004080;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.webmail-button a:hover {
+  background-color: #0066cc;
+}
+
+</style>
 
   <style>
     * {
