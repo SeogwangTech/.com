@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seogwang Tech</title>
   <style>
     * {
@@ -259,87 +259,6 @@ nav:hover .dropdown-panel {
 .dropdown-content button:hover {
   text-decoration: underline;
 }
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  line-height: 1.5;
-}
-
-.container {
-  max-width: 100%;
-  padding: 20px;
-}
-
-/* 이미지가 화면을 넘지 않도록 */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* 텍스트 박스나 콘텐츠를 정렬 */
-.section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* 상단 메뉴바도 반응형으로 설정 */
-.navbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-.navbar a {
-  text-decoration: none;
-  padding: 10px;
-  flex: 1;
-  text-align: center;
-}
-@media screen and (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .nav-container a {
-    padding: 10px 0;
-  }
-}
-@media screen and (max-width: 768px) {
-  .hero-section {
-    height: auto;
-    padding: 40px 20px;
-  }
-
-  .hero-content h1 {
-    font-size: 28px;
-  }
-
-  .hero-content p {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .logo-text {
-    font-size: 20px;
-  }
-}
 
   </style>
 </head>
@@ -349,47 +268,45 @@ img {
     <div class="header-content"> 
       <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/515272466_1397998971458140_2352081785412137135_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dSwYCfNpR1cQ7kNvwEcrW7z&_nc_oc=Adk6F8U5pQ7GhzuYwJPJi7WfpvILGGhAg0erDSgNwmCJiYmfIUyCYytQXY1EqlV3p1w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEDEN1M88SDeDh7hJVI0R0HABSZLYHhFm9V6oODBGlqhw&oe=68A66826" alt="세광테크 로고" class="logo-img">
       <div class="logo-text">Seogwang Tech</div>
-      <!-- Google Translate Script -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        {pageLanguage: 'en', includedLanguages: 'en,bn,ko,'},
-        'google_translate_element'
-      );
-    }
-  </script>
-  <script type="text/javascript"
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-  </script>
+  </header>
+  
+  <nav>
+    <div class="nav-container">
+      <a href="index.html">About Us</a>
+      <a href="제품소개.html">Product Introduction</a>
+      <a href="">Sustainable Management</a>
+      <a href="고객센터.html">customer service center</a>
+    </div>
 
-</head>
-<body>
-  <div class="container">
-  <div class="translator" style="display: flex; justify-content: flex-end;">
-    <div id="google_translate_element"></div>
+   <div class="dropdown-panel">
+  <div class="dropdown-column">
+    <strong>About Us</strong>
+    <a href="ceo.html">Chairman's Greetings</a>
+    <a href="경영.html">Management</a>
+    <a href="사업.html">Business Areas</a>
+    <a href="히스토리.html">Company History</a>
+  </div>
+  <div class="dropdown-column">
+    <strong>Product Introduction</strong>
+    <a href="카탈로그.html">catalog</a>
+    <a href="Fabric 공정도.html">Process diagram by fiber</a>
+    <a href="제품목록.html">Product List</a>
+  </div>
+  <div class="dropdown-column">
+    <strong>Sustainable Management</strong>
+    <a href="지속가능경영 체계.html">Sustainable Management System</a>
+    <a href="Eco-Friendly.html">Eco-friendly</a>
+    <a href="Shared Value.html">Shared Values</a>
+    <a href="Global Integrity.html">Global Integrity</a>
+  </div>
+  <div class="dropdown-column">
+    <strong>customer service center</strong>
+    <a href="고객상담.html">customer Service</a>
+    <a href="제품공급문의.html">Product supply inquiry</a>
   </div>
 </div>
+</nav>
 
-    <style>
-  .container {
-    position: relative;
-  }
-
-  .translator {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1000;
-  }
-  .translator {
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 1000;
-}
-
-</style>
-</header>
 <div class="hero-section">
   <h2>Seogwang Tech Company Limited</h2>
 </div>
