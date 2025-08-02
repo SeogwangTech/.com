@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seogwang Tech</title>
 
   <style>
@@ -103,28 +103,6 @@
   </style>
   
   <style>
-
-.greeting-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 30px;
-  flex-wrap: wrap; /* 반응형 대응 */
-}
-
-.greeting-img {
-  width: 300px;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.greeting-text {
-  flex: 1;
-  min-width: 300px;
-  font-size: 16px;
-  line-height: 1.8;
-}
-
     * {
       box-sizing: border-box;
     }
@@ -339,12 +317,134 @@ nav:hover .dropdown-panel {
       color: #ffffff;
       background-color: #333;
     }
+    .language-dropdown {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.dropdown-btn {
+  background-color: #fff;
+  border: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 10px;
+}
+
+.dropdown-content button {
+  display: block;
+  background: none;
+  border: none;
+  font-weight: bold;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  text-decoration: underline;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 100%;
+  padding: 20px;
+}
+
+/* 이미지가 화면을 넘지 않도록 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 텍스트 박스나 콘텐츠를 정렬 */
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 상단 메뉴바도 반응형으로 설정 */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding: 10px;
+  flex: 1;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-container a {
+    padding: 10px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+}
+
   </style>
 </head>
 <body>
 
   <header>
-    <div class="header-content">
+    <div class="header-content"> 
       <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/515272466_1397998971458140_2352081785412137135_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dSwYCfNpR1cQ7kNvwEcrW7z&_nc_oc=Adk6F8U5pQ7GhzuYwJPJi7WfpvILGGhAg0erDSgNwmCJiYmfIUyCYytQXY1EqlV3p1w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEDEN1M88SDeDh7hJVI0R0HABSZLYHhFm9V6oODBGlqhw&oe=68A66826" alt="세광테크 로고" class="logo-img">
       <div class="logo-text">Seogwang Tech</div>
       <!-- Google Translate Script -->
@@ -367,10 +467,8 @@ nav:hover .dropdown-panel {
     <div id="google_translate_element"></div>
   </div>
 </div>
-    </div>
-  </header>
 
-  <style>
+    <style>
   .container {
     position: relative;
   }
@@ -389,8 +487,9 @@ nav:hover .dropdown-panel {
 }
 
 </style>
+  </header>
   
-<nav class="main-nav">
+  <nav class="main-nav">
 <!-- PC용 드롭다운 메뉴 -->
 <nav class="main-nav">
   <div class="nav-container">
@@ -571,8 +670,50 @@ nav:hover .dropdown-panel {
   top: 10px; /* 메뉴 버튼을 아래로 10px 이동 */
 }
 
+
+</style>
+
 <div class="hero-section">
   <h2>Seogwang Tech Company Limited</h2>
+  <style>
+    @media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-container a {
+    padding: 10px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+}
+
+  </style>
 </div>
 
 <style>
@@ -593,6 +734,18 @@ nav:hover .dropdown-panel {
   padding: 0;
   font-family: 'Arial', sans-serif;
 }
+</style>
+
+<style>
+  .pc-version {
+    display: none;
+  }
+
+  .mobile-version {
+    display: none;
+  }
+
+  
 </style>
 
 <style>
@@ -654,6 +807,17 @@ nav:hover .dropdown-panel {
     
   </style>
 
+<style>
+  @media screen and (max-width: 768px) {
+  .hero-section {
+    height: 500px; /* 기존보다 더 크게 */
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+</style>
+
   <script>
   const heroSection = document.querySelector('.hero-section');
 
@@ -672,7 +836,6 @@ nav:hover .dropdown-panel {
   changeBackground(); // 초기 이미지 설정
   setInterval(changeBackground, 4000); // 4초마다 변경
 </script>
-
 <section class="greeting">
   <div class="greeting-container">
     <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/520876375_3720681421567489_3978910933955008204_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_ohc=aH07WAgAq6UQ7kNvwHia0kI&_nc_oc=AdnUQtJ9YJlGmcCxaWGu9hED-fLX0fhaARG2wdmEV8nqny7L9MTABI0uTVdKWYdIOvM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEheeP10HTmZA3FzIMTefSAw8a7Yzhamkedvypyjb_14A&oe=68A66E6E" 
@@ -880,5 +1043,6 @@ nav:hover .dropdown-panel {
 
 
   
+
 
 
