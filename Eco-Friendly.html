@@ -670,22 +670,50 @@ img {
   top: 10px; /* 메뉴 버튼을 아래로 10px 이동 */
 }
 
-  .overlay-menu.show {
-    display: block;
-  }
-}
-/* 메뉴 버튼 스타일 조정 */
-.menu-button {
-  margin-top: 10px; /* 원하는 만큼 숫자를 조절해서 살짝 내려요 */
-}
-.menu-button {
-  position: relative;
-  top: 10px; /* 메뉴 버튼을 아래로 10px 이동 */
-}
+
 </style>
-  
+
 <div class="hero-section">
   <h2>Seogwang Tech Company Limited</h2>
+  <style>
+    @media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-container a {
+    padding: 10px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+}
+
+  </style>
 </div>
 
 <style>
@@ -706,6 +734,18 @@ img {
   padding: 0;
   font-family: 'Arial', sans-serif;
 }
+</style>
+
+<style>
+  .pc-version {
+    display: none;
+  }
+
+  .mobile-version {
+    display: none;
+  }
+
+  
 </style>
 
 <section class="eco-management-section">
@@ -994,5 +1034,6 @@ img {
 
 </body>
 </html>
+
 
 
