@@ -490,42 +490,51 @@ img {
 </style>
   </header>
   
-  <nav>
-    <div class="nav-container">
-      <a href="index.html">About Us</a>
-      <a href="제품소개.html">Product Introduction</a>
-      <a href="">Sustainable Management</a>
-      <a href="고객센터.html">customer service center</a>
-    </div>
-
-   <div class="dropdown-panel">
-  <div class="dropdown-column">
-    <strong>About Us</strong>
-    <a href="ceo.html">Chairman's Greetings</a>
-    <a href="경영.html">Management</a>
-    <a href="사업.html">Business Areas</a>
-    <a href="히스토리.html">Company History</a>
+  <nav class="main-nav">
+<!-- PC용 드롭다운 메뉴 -->
+<nav class="main-nav">
+  <div class="nav-container">
+    <a href="index.html">About Us</a>
+    <a href="제품소개.html">Product Introduction</a>
+    <a href="#">Sustainable Management</a>
+    <a href="고객센터.html">Customer Service Center</a>
   </div>
-  <div class="dropdown-column">
-    <strong>Product Introduction</strong>
-    <a href="카탈로그.html">catalog</a>
-    <a href="Fabric 공정도.html">Process diagram by fiber</a>
-    <a href="제품목록.html">Product List</a>
+  <div class="dropdown-panel">
+    <!-- 기존 드롭다운 구조 그대로 사용 -->
   </div>
-  <div class="dropdown-column">
-    <strong>Sustainable Management</strong>
-    <a href="지속가능경영 체계.html">Sustainable Management System</a>
-    <a href="Eco-Friendly.html">Eco-friendly</a>
-    <a href="Shared Value.html">Shared Values</a>
-    <a href="Global Integrity.html">Global Integrity</a>
-  </div>
-  <div class="dropdown-column">
-    <strong>customer service center</strong>
-    <a href="고객상담.html">customer Service</a>
-    <a href="제품공급문의.html">Product supply inquiry</a>
-  </div>
-</div>
 </nav>
+
+
+  <!-- 드롭다운 (PC 전용) -->
+  <div class="dropdown-panel" id="dropdownPanel">
+    <div class="dropdown-column">
+      <strong>About Us</strong>
+      <a href="ceo.html">Chairman's Greetings</a>
+      <a href="경영.html">Management</a>
+      <a href="사업.html">Business Areas</a>
+      <a href="히스토리.html">Company History</a>
+    </div>
+    <div class="dropdown-column">
+      <strong>Product Introduction</strong>
+      <a href="카탈로그.html">Catalog</a>
+      <a href="Fabric 공정도.html">Process Diagram by Fiber</a>
+      <a href="제품목록.html">Product List</a>
+    </div>
+    <div class="dropdown-column">
+      <strong>Sustainable Management</strong>
+      <a href="지속가능경영 체계.html">Management System</a>
+      <a href="Eco-Friendly.html">Eco-friendly</a>
+      <a href="Shared Value.html">Shared Values</a>
+      <a href="Global Integrity.html">Global Integrity</a>
+    </div>
+    <div class="dropdown-column">
+      <strong>Customer Service Center</strong>
+      <a href="고객상담.html">Customer Service</a>
+      <a href="제품공급문의.html">Product Supply Inquiry</a>
+    </div>
+  </div>
+</nav>
+
 
 <script>
   function openMenu() {
@@ -4964,4 +4973,5 @@ powder</td>
 
 </body>
 </html>
+
 
