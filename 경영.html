@@ -444,7 +444,7 @@ img {
 <body>
 
   <header>
-    <div class="header-content">
+    <div class="header-content"> 
       <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/515272466_1397998971458140_2352081785412137135_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dSwYCfNpR1cQ7kNvwEcrW7z&_nc_oc=Adk6F8U5pQ7GhzuYwJPJi7WfpvILGGhAg0erDSgNwmCJiYmfIUyCYytQXY1EqlV3p1w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEDEN1M88SDeDh7hJVI0R0HABSZLYHhFm9V6oODBGlqhw&oe=68A66826" alt="세광테크 로고" class="logo-img">
       <div class="logo-text">Seogwang Tech</div>
       <!-- Google Translate Script -->
@@ -487,10 +487,9 @@ img {
 }
 
 </style>
-    </div>
   </header>
   
-<nav class="main-nav">
+  <nav class="main-nav">
 <!-- PC용 드롭다운 메뉴 -->
 <nav class="main-nav">
   <div class="nav-container">
@@ -671,8 +670,50 @@ img {
   top: 10px; /* 메뉴 버튼을 아래로 10px 이동 */
 }
 
+
+</style>
+
 <div class="hero-section">
   <h2>Seogwang Tech Company Limited</h2>
+  <style>
+    @media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-container a {
+    padding: 10px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+}
+
+  </style>
 </div>
 
 <style>
@@ -693,6 +734,18 @@ img {
   padding: 0;
   font-family: 'Arial', sans-serif;
 }
+</style>
+
+<style>
+  .pc-version {
+    display: none;
+  }
+
+  .mobile-version {
+    display: none;
+  }
+
+  
 </style>
 
 <section class="eco-management-section">
@@ -959,5 +1012,6 @@ In addition, we will pursue joint growth based on coexistence with employees, pa
 
 </body>
 </html>
+
 
 
