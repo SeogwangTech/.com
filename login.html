@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +19,7 @@
     }
     h2 { color: #333; }
     label { font-weight: bold; display: block; margin-top: 20px; }
-    input, textarea, button {
+    input, textarea, button, select {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
@@ -48,7 +48,6 @@
     }
   </style>
 
-  <!-- Google Translate Script -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement(
@@ -68,13 +67,29 @@
       <div id="google_translate_element"></div>
     </div>
 
-    <h2>📬 webmail</h2>
+    <h2>📬 Inquiry</h2>
     <form action="https://formspree.io/f/mnnzzbwp" method="POST">
-      <label>email</label>
-      <input type="email" name="email" required />
-      <label>message</label>
-      <textarea name="message" rows="5" required></textarea>
-      <button type="submit">forwarding</button>
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone *</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="location">Location *</label>
+      <input type="text" id="location" name="location" required />
+
+      <label for="inquiry_type">Select Inquiry Type *</label>
+      <select id="inquiry_type" name="inquiry_type" required>
+        <option value="">Select</option>
+        <option value="product_info">Product Details</option>
+        <option value="partnership">Partnership Inquiry</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="message">Comments or Message *</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Submit</button>
     </form>
   </div>
 </body>
