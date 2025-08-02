@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seogwang Tech</title>
 
   <style>
@@ -357,6 +357,87 @@ nav:hover .dropdown-panel {
 .dropdown-content button:hover {
   text-decoration: underline;
 }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 100%;
+  padding: 20px;
+}
+
+/* 이미지가 화면을 넘지 않도록 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 텍스트 박스나 콘텐츠를 정렬 */
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 상단 메뉴바도 반응형으로 설정 */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding: 10px;
+  flex: 1;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-container a {
+    padding: 10px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+}
 
   </style>
 </head>
@@ -589,8 +670,50 @@ nav:hover .dropdown-panel {
   top: 10px; /* 메뉴 버튼을 아래로 10px 이동 */
 }
 
+
+</style>
+
 <div class="hero-section">
   <h2>Seogwang Tech Company Limited</h2>
+  <style>
+    @media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-container a {
+    padding: 10px 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+}
+
+  </style>
 </div>
 
 <style>
@@ -899,5 +1022,6 @@ nav:hover .dropdown-panel {
 
 </body>
 </html>
+
 
 
