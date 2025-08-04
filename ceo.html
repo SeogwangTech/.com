@@ -840,6 +840,7 @@ img {
   changeBackground(); // 초기 이미지 설정
   setInterval(changeBackground, 4000); // 4초마다 변경
 </script>
+
 <section class="greeting">
   <div class="greeting-container">
     <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t1.15752-9/520876375_3720681421567489_3978910933955008204_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_ohc=aH07WAgAq6UQ7kNvwHia0kI&_nc_oc=AdnUQtJ9YJlGmcCxaWGu9hED-fLX0fhaARG2wdmEV8nqny7L9MTABI0uTVdKWYdIOvM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&oh=03_Q7cD2wEheeP10HTmZA3FzIMTefSAw8a7Yzhamkedvypyjb_14A&oe=68A66E6E" 
@@ -868,6 +869,51 @@ img {
     </div>
   </div>
 </section>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  .greeting-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 전체 왼쪽 정렬 */
+    max-width: 1200px;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .greeting-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .greeting-text {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+  }
+
+  @media (min-width: 769px) {
+    .greeting-container {
+      flex-direction: row; /* PC: 이미지 왼쪽, 텍스트 오른쪽 */
+      align-items: flex-start;
+    }
+
+    .greeting-img {
+      margin-bottom: 0;
+      margin-right: 20px;
+      width: 40%;
+    }
+
+    .greeting-text {
+      width: 60%;
+    }
+  }
+</style>
 
 <style>
     .thumbnail-container {
